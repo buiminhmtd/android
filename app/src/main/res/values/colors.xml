@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- frame_276 colors -->
+    <color name="_bg__frame_276_ek2_color">#000000</color>
+    <color name="effect_color">#ffffff</color>
+    <color name="header_title_color">#FFFFFF</color>
+    <color name="caption_color">#F1F1F1</color>
+    <color name="rectangle_ek1_color">#181818</color>
+
+    <!-- sign_up_page_1 colors -->
+    <color name="_bg__sign_up_page_1_ek2_color">#F5F3EE</color>
+    <color name="_3_44_pm_color">#000000</color>
+    <color name="border_color">#ffffff</color>
+    <color name="__ng_k__color">#FFFFFF</color>
+    <color name="nh__th_ng_tin_color">#0DC0DE</color>
+    <color name="line_color">#181818</color>
+
+    <!-- login_page_1 colors -->
+    <color name="_bg__login_page_1_ek2_color">#F5F3EE</color>
+    <color name="__ng_nh_p_color">#FFFFFF</color>
+
+    <!-- home colors -->
+    <color name="_bg__home_ek2_color">#FFFFFF</color>
+    <color name="food_title_color">#181818</color>
+    <color name="creator_color">#C1C1C1</color>
+    <color name="see_all___label_color">#A9A9A9</color>
+    <color name="rectangle_1_ek1_color">#298F18</color>
+    <color name="label_ek1_color">#7FFF74</color>
+    <color name="rectangle_1_ek11_color">#302020</color>
+
+    <!-- discover colors -->
+    <color name="_bg__discover_ek2_color">#FFFFFF</color>
+    <color name="title_color">#181818</color>
+    <color name="name___label_color">#797979</color>
+    <color name="rectangle_1_ek4_color">#298F18</color>
+
+    <!-- recipe_detail colors -->
+    <color name="_bg__recipe_detail_ek2_color">#FFFFFF</color>
+    <color name="bg_color">#3EC328</color>
+    <color name="total_reviews___label_color">#797979</color>
+    <color name="rectangle_1_ek2_color">#A9A9A9</color>
+
+    <!-- recipe_detail2 colors -->
+    <color name="_bg__recipe_detail2_ek2_color">#FFFFFF</color>
+    <color name="rectangle_1_color">#181818</color>
+    <color name="b__c_1_color">#000000</color>
+
+    <!-- create_recipe colors -->
+    <color name="_bg__create_recipe_ek2_color">#FFFFFF</color>
+    <color name="___add_new_ingredient_color">#181818</color>
+    <color name="label_ek4_color">#A9A9A9</color>
+
+    <!-- new_recipe_step2 colors -->
+    <color name="_bg__new_recipe_step2_ek2_color">#FFFFFF</color>
+    <color name="h__ng_d_n_color">#000000</color>
+    <color name="ellipse_10_color">#D9D9D9</color>
+
+    <!-- notification colors -->
+    <color name="_bg__notification_ek2_color">#FFFFFF</color>
+    <color name="far_far_away__behind_color">#A9A9A9</color>
+    <color name="h_m_qua_color">#181818</color>
+    <color name="rectangle_color">#D9D9D9</color>
+    <color name="rectangle_1_ek5_color">#298F18</color>
+
+    <!-- profile_page colors -->
+    <color name="_bg__profile_page_ek2_color">#F1F1F1</color>
+    <color name="label_color">#FFFFFF</color>
+    <color name="bio_color">#797979</color>
+
+    <!-- change_profile_img_1 colors -->
+    <color name="_bg__change_profile_img_1_ek2_color">#FFFFFF</color>
+    <color name="next_color">#000000</color>
+</resources>

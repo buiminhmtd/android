@@ -1,0 +1,743 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:id="@+id/main">
+    <!--
+    /*
+     *	This content is generated from the API File Info.
+     *	(Alt+Shift+Ctrl+I).
+     *
+     *	@desc
+     *	@file 		recipe_detail
+     *	@date 		Sunday 19th of May 2024 01:28:14 PM
+     *	@title 		Page 1
+     *	@author
+     *	@keywords
+     *	@generator 	Export Kit v1.3.figma
+     *
+     */
+    -->
+    <ScrollView android:id="@+id/recipe_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+
+
+            <RelativeLayout android:id="@+id/page_recipe_detail_ek1"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View   android:id="@+id/_bg__recipe_detail_ek2"
+                    android:background="@drawable/_bg__recipe_detail_ek2_shape"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="375dp"
+                    android:layout_height="1310dp" />
+
+
+                <RelativeLayout android:id="@+id/ingredients"
+                    android:layout_marginTop="486dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <RelativeLayout android:id="@+id/header"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView android:id="@+id/title"
+                            android:fontFamily="Poppins"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/title_color"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="189dp"
+                            android:layout_height="42dp"
+                            android:text="@string/title_string"
+                            />
+
+
+                        <RelativeLayout android:id="@+id/servings"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginStart="242dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView android:id="@+id/label"
+                                android:fontFamily="Poppins"
+                                android:layout_gravity="center_vertical|end"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:textColor="@color/title_color"
+                                android:layout_marginLeft="-2dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="105dp"
+                                android:layout_height="30dp"
+                                android:text="@string/label_string"
+                                />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/recipe_1"
+                        android:layout_marginTop="56dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/bg"
+                            android:background="@drawable/bg_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="335dp"
+                            android:layout_height="76dp" />
+
+                        <TextView android:id="@+id/label_ek1"
+                            android:fontFamily="Poppins"
+                            android:layout_gravity="center_vertical|end"
+                            android:gravity="end"
+                            android:textSize="14sp"
+                            android:textColor="@color/label_ek1_color"
+                            android:layout_marginLeft="281dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_width="48dp"
+                            android:layout_height="30dp"
+                            android:text="@string/label_ek1_string"
+                            />
+
+
+                        <RelativeLayout android:id="@+id/icon___noodles"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <View   android:id="@+id/bg_ek1"
+                                android:background="@drawable/bg_ek1_shape"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp" />
+
+                        </RelativeLayout>
+
+                        <TextView android:id="@+id/__u_ph_"
+                            android:fontFamily="Poppins"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/_bg__recipe_detail_ek2_color"
+                            android:layout_marginLeft="84dp"
+                            android:layout_marginTop="29dp"
+                            android:layout_width="88dp"
+                            android:layout_height="33dp"
+                            android:text="@string/__u_ph__string"
+                            />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/recipe_2"
+                        android:layout_marginTop="144dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/bg_ek2"
+                            android:background="@drawable/bg_ek2_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="335dp"
+                            android:layout_height="76dp" />
+
+                        <TextView android:id="@+id/label_ek2"
+                            android:fontFamily="Poppins"
+                            android:layout_gravity="center_vertical|end"
+                            android:gravity="end"
+                            android:textSize="14sp"
+                            android:textColor="@color/label_ek1_color"
+                            android:layout_marginLeft="281dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_width="48dp"
+                            android:layout_height="30dp"
+                            android:text="@string/label_ek2_string"
+                            />
+
+
+                        <RelativeLayout android:id="@+id/icon___noodles_ek1"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <View   android:id="@+id/bg_ek3"
+                                android:background="@drawable/bg_ek3_shape"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp" />
+
+                        </RelativeLayout>
+
+                        <TextView android:id="@+id/c__chua"
+                            android:fontFamily="Poppins"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/_bg__recipe_detail_ek2_color"
+                            android:layout_marginLeft="84dp"
+                            android:layout_marginTop="29dp"
+                            android:layout_width="87dp"
+                            android:layout_height="33dp"
+                            android:text="@string/c__chua_string"
+                            />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/recipe_3"
+                        android:layout_marginTop="232dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/bg_ek4"
+                            android:background="@drawable/bg_ek4_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="335dp"
+                            android:layout_height="76dp" />
+
+                        <TextView android:id="@+id/label_ek3"
+                            android:fontFamily="Poppins"
+                            android:layout_gravity="center_vertical|end"
+                            android:gravity="end"
+                            android:textSize="14sp"
+                            android:textColor="@color/label_ek1_color"
+                            android:layout_marginLeft="290dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_width="39dp"
+                            android:layout_height="30dp"
+                            android:text="@string/label_ek3_string"
+                            />
+
+
+                        <RelativeLayout android:id="@+id/icon___noodles_ek2"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <View   android:id="@+id/bg_ek5"
+                                android:background="@drawable/bg_ek5_shape"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp" />
+
+                        </RelativeLayout>
+
+                        <TextView android:id="@+id/mu_i"
+                            android:fontFamily="Poppins"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/_bg__recipe_detail_ek2_color"
+                            android:layout_marginLeft="84dp"
+                            android:layout_marginTop="29dp"
+                            android:layout_width="63dp"
+                            android:layout_height="33dp"
+                            android:text="@string/mu_i_string"
+                            />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/recipe_4"
+                        android:layout_marginTop="320dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/bg_ek6"
+                            android:background="@drawable/bg_ek6_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="335dp"
+                            android:layout_height="76dp" />
+
+                        <TextView android:id="@+id/label_ek4"
+                            android:fontFamily="Poppins"
+                            android:layout_gravity="center_vertical|end"
+                            android:gravity="end"
+                            android:textSize="14sp"
+                            android:textColor="@color/label_ek1_color"
+                            android:layout_marginLeft="273dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_width="56dp"
+                            android:layout_height="30dp"
+                            android:text="@string/label_ek4_string"
+                            />
+
+
+                        <RelativeLayout android:id="@+id/icon___noodles_ek3"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <View   android:id="@+id/bg_ek7"
+                                android:background="@drawable/bg_ek7_shape"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp" />
+
+                        </RelativeLayout>
+
+                        <TextView android:id="@+id/d_u___u_n_nh"
+                            android:fontFamily="Poppins"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/_bg__recipe_detail_ek2_color"
+                            android:layout_marginLeft="84dp"
+                            android:layout_marginTop="29dp"
+                            android:layout_width="134dp"
+                            android:layout_height="33dp"
+                            android:text="@string/d_u___u_n_nh_string"
+                            />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/recipe_5"
+                        android:layout_marginTop="408dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/bg_ek8"
+                            android:background="@drawable/bg_ek8_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="335dp"
+                            android:layout_height="76dp" />
+
+                        <TextView android:id="@+id/label_ek5"
+                            android:fontFamily="Poppins"
+                            android:layout_gravity="center_vertical|end"
+                            android:gravity="end"
+                            android:textSize="14sp"
+                            android:textColor="@color/label_ek1_color"
+                            android:layout_marginLeft="273dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_width="56dp"
+                            android:layout_height="30dp"
+                            android:text="@string/label_ek5_string"
+                            />
+
+
+                        <RelativeLayout android:id="@+id/icon___noodles_ek4"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <View   android:id="@+id/bg_ek9"
+                                android:background="@drawable/bg_ek9_shape"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp" />
+
+                        </RelativeLayout>
+
+                        <TextView android:id="@+id/n__c"
+                            android:fontFamily="Poppins"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/_bg__recipe_detail_ek2_color"
+                            android:layout_marginLeft="84dp"
+                            android:layout_marginTop="29dp"
+                            android:layout_width="65dp"
+                            android:layout_height="33dp"
+                            android:text="@string/n__c_string"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/header_ek1"
+                    android:layout_marginTop="861dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView android:id="@+id/title_ek1"
+                        android:fontFamily="Poppins"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/title_color"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="189dp"
+                        android:layout_height="42dp"
+                        android:text="@string/title_ek1_string"
+                        />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/video"
+                    android:layout_marginTop="166dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <RelativeLayout android:id="@+id/group_1"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+
+                        <RelativeLayout android:id="@+id/label___reviews"
+                            android:layout_marginTop="216dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView android:id="@+id/total_reviews___label"
+                                android:fontFamily="Poppins"
+                                android:textSize="14sp"
+                                android:textColor="@color/total_reviews___label_color"
+                                android:layout_marginLeft="49dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_width="118dp"
+                                android:layout_height="30dp"
+                                android:text="@string/total_reviews___label_string"
+                                />
+
+
+                            <RelativeLayout android:id="@+id/rating"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                >
+
+
+                                <RelativeLayout android:id="@+id/icon_star"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    >
+
+                                    <View   android:id="@+id/rectangle_1"
+                                        android:background="@drawable/rectangle_1_shape"
+                                        android:alpha="0"
+                                        android:layout_marginStart="0dp"
+                                        android:layout_marginTop="0dp"
+                                        android:layout_width="16dp"
+                                        android:layout_height="16dp" />
+
+                                    <ImageView android:id="@+id/star"
+                                        android:src="@drawable/star"
+                                        android:contentDescription="star"
+                                        android:layout_marginStart="2dp"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_width="12dp"
+                                        android:layout_height="12dp" />
+
+                                </RelativeLayout>
+
+                                <TextView android:id="@+id/label_ek6"
+                                    android:fontFamily="Poppins"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/title_color"
+                                    android:layout_marginLeft="19dp"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_width="41dp"
+                                    android:layout_height="30dp"
+                                    android:text="@string/label_ek6_string"
+                                    />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <ImageView android:id="@+id/food_thumbnail"
+                            android:src="@drawable/food_thumbnail"
+                            android:contentDescription="food_thumbnail"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="335dp"
+                            android:layout_height="200dp" />
+
+
+                        <RelativeLayout android:id="@+id/creator_profile"
+                            android:layout_marginTop="252dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+
+                            <RelativeLayout android:id="@+id/creator"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <ImageView android:id="@+id/avatar"
+                                    android:src="@drawable/avatar"
+                                    android:contentDescription="avatar"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_width="41dp"
+                                    android:layout_height="41dp" />
+
+
+                                <RelativeLayout android:id="@+id/info"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginStart="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    >
+
+
+                                    <RelativeLayout android:id="@+id/location"
+                                        android:layout_marginTop="24dp"
+                                        android:layout_marginStart="0dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        >
+
+                                        <TextView android:id="@+id/label_ek7"
+                                            android:fontFamily="Poppins"
+                                            android:textSize="14sp"
+                                            android:textColor="@color/total_reviews___label_color"
+                                            android:layout_marginLeft="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_width="128dp"
+                                            android:layout_height="30dp"
+                                            android:text="@string/label_ek7_string"
+                                            />
+
+
+                                        <RelativeLayout android:id="@+id/iconly_curved_location"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginStart="0dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            >
+
+                                            <View   android:id="@+id/rectangle_1_ek1"
+                                                android:background="@drawable/rectangle_1_ek1_shape"
+                                                android:alpha="0"
+                                                android:layout_marginStart="0dp"
+                                                android:layout_marginTop="0dp"
+                                                android:layout_width="16dp"
+                                                android:layout_height="16dp" />
+
+                                            <ImageView android:id="@+id/exclude"
+                                                android:src="@drawable/exclude"
+                                                android:contentDescription="exclude"
+                                                android:layout_marginStart="3dp"
+                                                android:layout_marginTop="2dp"
+                                                android:layout_width="10dp"
+                                                android:layout_height="12dp" />
+
+                                        </RelativeLayout>
+
+                                    </RelativeLayout>
+
+                                    <TextView android:id="@+id/label_ek8"
+                                        android:fontFamily="Poppins"
+                                        android:textStyle="bold"
+                                        android:textSize="16sp"
+                                        android:textColor="@color/title_color"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_marginTop="0dp"
+                                        android:layout_width="161dp"
+                                        android:layout_height="33dp"
+                                        android:text="@string/label_ek8_string"
+                                        />
+
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/icon_bookmark"
+                        android:layout_marginTop="222dp"
+                        android:layout_marginStart="331dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/rectangle_1_ek2"
+                            android:background="@drawable/rectangle_1_ek2_shape"
+                            android:alpha="0"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp" />
+
+                        <ImageView android:id="@+id/union"
+                            android:src="@drawable/union"
+                            android:contentDescription="union"
+                            android:layout_marginStart="3.75dp"
+                            android:layout_marginTop="1.75dp"
+                            android:layout_width="16.44dp"
+                            android:layout_height="20.5dp" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/heading"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView android:id="@+id/title_ek2"
+                        android:fontFamily="Poppins"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/_bg__recipe_detail_ek2_color"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="52dp"
+                        android:layout_width="364dp"
+                        android:layout_height="53dp"
+                        android:text="@string/title_ek2_string"
+                        />
+
+
+                    <RelativeLayout android:id="@+id/icon_arrow_right"
+                        android:layout_marginTop="-12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/rectangle_1_ek3"
+                            android:background="@drawable/rectangle_1_ek3_shape"
+                            android:alpha="0"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp" />
+
+                        <ImageView android:id="@+id/union_ek1"
+                            android:src="@drawable/union_ek1"
+                            android:contentDescription="union_ek1"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="16dp"
+                            android:layout_height="14dp" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/icon_more"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="331dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/rectangle_1_ek4"
+                            android:background="@drawable/rectangle_1_ek4_shape"
+                            android:alpha="0"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="-24dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp" />
+
+                        <ImageView android:id="@+id/union_ek2"
+                            android:src="@drawable/union_ek2"
+                            android:contentDescription="union_ek2"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="18dp"
+                            android:layout_height="4dp" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <ImageView android:id="@+id/image_1"
+                    android:src="@drawable/image_1"
+                    android:contentDescription="image_1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="901dp"
+                    android:layout_width="335dp"
+                    android:layout_height="323dp" />
+
+
+                <RelativeLayout android:id="@+id/frame_253"
+                    android:layout_marginTop="1236dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView android:id="@+id/xem_c_ng_th_c"
+                        android:fontFamily="Inter"
+                        android:textSize="15sp"
+                        android:textColor="@color/_bg__recipe_detail_ek2_color"
+                        android:layout_marginLeft="106dp"
+                        android:layout_marginTop="11dp"
+                        android:layout_width="127.5dp"
+                        android:layout_height="28.5dp"
+                        android:text="@string/xem_c_ng_th_c_string"
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>

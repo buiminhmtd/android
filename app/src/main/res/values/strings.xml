@@ -1,0 +1,114 @@
+<resources>
+    <string name="app_name">MealReceiptApp</string>
+    <string name="ek_img_content">ExportKit Image</string>
+
+    <!--  frame_276 strings  -->
+    <string name="header_title_string"> Đồ ăn chay</string>
+    <string name="caption_string">Cung cấp các công thức tốt nhất</string>
+    <string name="label_string">Bắt đầu </string>
+    <string name="___time_string">19:27</string>
+
+    <!-- sign_up_page_1 string -->
+    <string name="_3_44_pm_string">3:44 PM</string>
+    <string name="__ng_k__string">Đăng ký</string>
+    <string name="__ng_k__ek1_string">Đăng ký</string>
+    <string name="ho_c_string">hoặc</string>
+    <string name="ti_p_t_c_v_i_string">Tiếp tục với</string>
+    <string name="email__string">Email*</string>
+    <string name="m_t_ku__string">Mật khẩu*</string>
+    <string name="facebook_ek3_string">Facebook</string>
+    <string name="google_ek3_string">Google</string>
+    <string name="np_email_string">Nhập Email</string>
+    <string name="np_m_t_ku_string">Nhập mật khẩu</string>
+    <string name="___c__t_i_kho_n____ng_np_string"> Đã có tài khoản? Đăng nhập</string>
+    <string name="n_tng_tin_string">Nhớ thông tin</string>
+
+    <!--  login_page_1 strings  -->
+    <string name="__ng_np_string">Đăng nhập</string>
+    <string name="__ng_np_ek1_string">Đăng nhập</string>
+    <string name="qu_n_m_t_ku__string">Quên mật khẩu?</string>
+    <string name="ca_c__t_i_kho_n____ng_k__string">Chưa có tài khoản? Đăng ký</string>
+
+    <!--  home strings  -->
+    <string name="food_title_string">Phở chay</string>
+    <string name="creator_string">Thực hiện bởi Minh</string>
+    <string name="recent_recipe___title_string">Xem gần đây</string>
+    <string name="see_all___label_string">Xem thêm</string>
+    <string name="title_string">Cách nấu phở chay</string>
+    <string name="name___label_string">Thực hiện bởi Minh</string>
+    <string name="_label_string">4,7</string>
+    <string name="title_ek1_string">Cách nấu </string>
+    <string name="name___label_ek1_string">Thực hiện </string>
+    <string name="label_ek1_string">8:12</string>
+    <string name="label_ek2_string">4,7</string>
+    <string name="category_title_string">Phổ biến</string>
+    <string name="see_all___label_ek1_string">Xem thêm</string>
+    <string name="label_ek3_string">Tìm kiếm món ăn</string>
+    <string name="title_ek2_string">Thực phẩm chay </string>
+    <string name="__time_string">19:27</string>
+
+    <!--  discover strings  -->
+    <string name="name___label_ek2_string">Thực hiện bởi Quang</string>
+    <string name="title_ek3_string">Công thức đã lưu</string>
+
+    <!--  recipe_detail strings  -->
+    <string name="__u_ph__string">Đậu phụ</string>
+    <string name="c__chua_string">cà chua</string>
+    <string name="mu_i_string">muối</string>
+    <string name="label_ek4_string">200ml</string>
+    <string name="d_u___u_n_nh_string">dầu đậu nành</string>
+    <string name="label_ek5_string">200ml</string>
+    <string name="n__c_string">nước</string>
+    <string name="total_reviews___label_string">(300 Reviews)</string>
+    <string name="label_ek6_string">4,5</string>
+    <string name="label_ek7_string">HaNoi, VietNam</string>
+    <string name="label_ek8_string">Vũ Hoàng Dng</string>
+    <string name="xem_c_ng_th_c_string">Xem công thức</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!--  recipe_detail2 strings  -->
+    <string name="b__c_1_string">Bước 1</string>
+    <string name="b__c_2_string">Bước 2</string>
+    <string name="b__c_3_string">Bước 3</string>
+    <string name="__nh_gi__string">Đánh giá</string>
+    <string name="b_nh_lu_n_1_string">Bình luận 1</string>
+    <string name="b_nh_lu_n_1_ek1_string">Bình luận 2</string>
+    <string name="b_nh_lu_n_1_ek2_string">Bình luận 3</string>
+    <string name="b_nh_lu_n_1_ek3_string">Bình luận 4</string>
+    <string name="b_nh_lu_n_1_ek4_string">Bình luận 5</string>
+    <string name="th_m_b_nh_lu_n_string">Thêm bình luận</string>
+
+    <!--  create_recipe strings  -->
+    <string name="___add_new_ingredient_string">Thêm nguyên lệu mới</string>
+    <string name="th_i_gian_n_u_string">Thời gian nấu</string>
+    <string name="s__ng__i__n_string">Số người ăn</string>
+    <string name="ti_p_string">Tiếp</string>
+
+    <!--  new_recipe_step2 strings  -->
+    <string name="next_string">NEXT</string>
+    <string name="__ng_c_ng_th_c_string">Đăng công thức</string>
+    <string name="h__ng_d_n_string">Hướng dẫn</string>
+    <string name="v__ho_ng_d__ng_string">Vũ Hoàng Dương</string>
+
+    <!--  notification strings  -->
+    <string name="far_far_away__behind_string">Youre all set!</string>
+    <string name="h_m_qua_string">Hôm qua</string>
+    <string name="transaction_success__string">Dont forget to try your saved recipe</string>
+    <string name="far_far_away__behind_ek1_string">Far far away, behind the word mountains, far from the countries.</string>
+    <string name="transaction_success__ek1_string">Cng thc mi</string>
+    <string name="far_far_away__behind_ek2_string">Far far away, behind the word mountains, far from the countries.</string>
+    <string name="transaction_success__ek2_string">Dont forget to try your saved recipe</string>
+    <string name="far_far_away__behind_ek3_string">Far far away, behind the word mountains, far from the countries.</string>
+    <string name="h_m_nay_string">Hôm nay</string>
+
+    <!--  profile_page strings  -->
+    <string name="bio_string">Mô tả bản thân</string>
+    <string name="_4_string">4</string>
+
+    <!--  change_profile_img_1 strings  -->
+    <string name="recent_string">Recent</string>
+</resources>
