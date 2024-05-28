@@ -82,11 +82,22 @@
     <string name="b_nh_lu_n_1_ek4_string">Bình luận 5</string>
     <string name="th_m_b_nh_lu_n_string">Thêm bình luận</string>
 
-    <!--  create_recipe strings  -->
-    <string name="___add_new_ingredient_string">Thêm nguyên lệu mới</string>
+    <!-- create_recipe strings -->
+    <string name="ti_p_string">Tiếp tục</string>
+    <string name="___add_new_ingredient_string">Thêm nguyên liệu mới</string>
+    <string name="title_string2"> Nguyên liệu </string>
+    <string name="label_string2">u ph</string>
+    <string name="label_ek1_string2">100gr</string>
+    <string name="label_ek2_string2">Cà chua</string>
+    <string name="label_ek3_string2">100gr</string>
+    <string name="label_ek4_string2"> tên nguyên liệu </string>
+    <string name="label_ek5_string2">Khối lượng</string>
+    <string name="label_ek6_string2">15 phút</string>
     <string name="th_i_gian_n_u_string">Thời gian nấu</string>
-    <string name="s__ng__i__n_string">Số người ăn</string>
-    <string name="ti_p_string">Tiếp</string>
+    <string name="label_ek7_string2">01</string>
+    <string name="s__ng__i__n_string">Số người ăn </string>
+    <string name="label_ek8_string2">Tn mn</string>
+    <string name="title_ek1_string2">To mn mi</string>
 
     <!--  new_recipe_step2 strings  -->
     <string name="next_string">NEXT</string>

@@ -1,21 +1,7 @@
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/main">
-    <!--
-    /*
-     *	This content is generated from the API File Info.
-     *	(Alt+Shift+Ctrl+I).
-     *
-     *	@desc
-     *	@file 		new_recipe_step2
-     *	@date 		Sunday 19th of May 2024 01:37:47 PM
-     *	@title 		Page 1
-     *	@author
-     *	@keywords
-     *	@generator 	Export Kit v1.3.figma
-     *
-     */
-    -->
+
     <ScrollView android:id="@+id/new_recipe_step2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" >
