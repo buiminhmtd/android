@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/create_recipe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/content_container"
@@ -58,17 +58,14 @@
                     android:layout_height="200dp"
                     android:layout_marginTop="12dp"
                     android:contentDescription="food_thumbnail_step" />
-
-                <!--Tên món ăn-->
-
-                <!--Mô tả-->
             </RelativeLayout>
 
-            <!--Button tiếp tục-->
-            <RelativeLayout
-                android:id="@+id/ingredients"
+            <!--Steps-->
+            <LinearLayout
+                android:id="@+id/steps_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/editTextTextMultiLine"
@@ -77,82 +74,66 @@
                     android:ems="10"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:hint="Bước 1"/>
+                    android:hint="Bước 1" />
 
                 <EditText
                     android:id="@+id/editTextTextMultiLine2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="10dp"
                     android:ems="10"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:hint="Bước 2"/>
+                    android:hint="Bước 2" />
 
                 <EditText
                     android:id="@+id/editTextTextMultiLine3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginTop="10dp"
                     android:ems="10"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:hint="Bước 3"/>
+                    android:hint="Bước 3" />
+            </LinearLayout>
 
-                <!--Thêm nguyên liệu mới-->
-                <RelativeLayout
-                    android:id="@+id/add_new"
+            <!--Add step-->
+            <RelativeLayout
+                android:id="@+id/add_step"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageButton
+                    android:id="@+id/addStepRow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="180dp">
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#FFFFFF"
+                    android:src="@drawable/union_ek3" />
 
-                    <TextView
-                        android:id="@+id/___add_new_ingredient"
-                        android:layout_width="203dp"
-                        android:layout_height="33dp"
-                        android:layout_marginLeft="28dp"
-                        android:layout_marginTop="1dp"
-                        android:text="Thêm bước"
-                        android:textColor="@color/___add_new_ingredient_color"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <RelativeLayout
-                        android:id="@+id/icon_plus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp">
-
-                        <View
-                            android:id="@+id/rectangle_1"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:alpha="0"
-                            android:background="@drawable/rectangle_1_shape" />
-
-                        <ImageButton
-                            android:id="@+id/union"
-                            android:layout_width="12dp"
-                            android:layout_height="11.99dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="6dp"
-                            android:contentDescription="union"
-                            android:src="@drawable/union" />
-                    </RelativeLayout>
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Thêm bước"
+                    android:textColor="@color/___add_new_ingredient_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
+            <!--Button hoàn tất-->
             <Button
                 android:id="@+id/buttonComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@color/bg_color"
-                android:text="Thêm công thức" />
+                android:text="Hoàn tất" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

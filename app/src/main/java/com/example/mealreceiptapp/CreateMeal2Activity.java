@@ -1,23 +1,33 @@
 package com.example.mealreceiptapp;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateMeal2Activity extends AppCompatActivity {
 
     private ImageView foodThumbnailStep;
-    private EditText step1EditText;
-    private EditText step2EditText;
-    private EditText step3EditText;
+    private LinearLayout stepsContainer;
     private DBHelper dbHelper;
+    private Uri imageUri;
+    private List<EditText> stepEditTexts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,80 +36,97 @@ public class CreateMeal2Activity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
 
         foodThumbnailStep = findViewById(R.id.food_thumbnail_step);
-        step1EditText = findViewById(R.id.editTextTextMultiLine);
-        step2EditText = findViewById(R.id.editTextTextMultiLine2);
-        step3EditText = findViewById(R.id.editTextTextMultiLine3);
+        stepsContainer = findViewById(R.id.steps_container);
         Button completeButton = findViewById(R.id.buttonComplete);
+        ImageButton addStepRowButton = findViewById(R.id.addStepRow);
+
+        stepEditTexts = new ArrayList<>();
+
+        // Add initial step EditTexts
+        stepEditTexts.add(findViewById(R.id.editTextTextMultiLine));
+        stepEditTexts.add(findViewById(R.id.editTextTextMultiLine2));
+        stepEditTexts.add(findViewById(R.id.editTextTextMultiLine3));
 
         Intent intent = getIntent();
         String imageUriString = intent.getStringExtra("imageUri");
         if (imageUriString != null) {
-            Uri imageUri = Uri.parse(imageUriString);
+            imageUri = Uri.parse(imageUriString);
             foodThumbnailStep.setImageURI(imageUri);
         }
 
         completeButton.setOnClickListener(v -> {
-            // Get step information from UI
-            String step1 = step1EditText.getText().toString();
-            String step2 = step2EditText.getText().toString();
-            String step3 = step3EditText.getText().toString();
-
-            // Concatenate steps
             StringBuilder stepsBuilder = new StringBuilder();
-            if (!step1.isEmpty()) {
-                stepsBuilder.append(step1).append("\n");
-            }
-            if (!step2.isEmpty()) {
-                stepsBuilder.append(step2).append("\n");
-            }
-            if (!step3.isEmpty()) {
-                stepsBuilder.append(step3).append("\n");
+            for (EditText stepEditText : stepEditTexts) {
+                String stepText = stepEditText.getText().toString();
+                if (!stepText.isEmpty()) {
+                    stepsBuilder.append(stepText).append("\n");
+                }
             }
             String steps = stepsBuilder.toString();
 
-            // Get meal attributes from intent
-            String mealName = intent.getStringExtra("mealName");
-            String description = intent.getStringExtra("description");
-            String ingredientIDsString = intent.getStringExtra("ingredientIDs");
+            String mealName = intent.getStringExtra("ten");
+            String description = intent.getStringExtra("moTa");
+            List<String> ingredientNames = intent.getStringArrayListExtra("ingredientNames");
+            List<String> ingredientQuantities = intent.getStringArrayListExtra("ingredientQuantities");
 
-            // Convert URI to byte array
-            byte[] mealImage = uriToByteArray(Uri.parse(imageUriString));
+            byte[] imageBytes = null;
+            if (imageUri != null) {
+                imageBytes = uriToByteArray(imageUri);
+            }
 
             // Insert meal into database
-            long mealID = dbHelper.insertMeal(mealName, mealImage, description, steps);
+            long mealID = dbHelper.insertMeal(mealName, imageBytes, description, steps);
 
             // Insert ingredients into meal_ingredient table
-            if (mealID != -1) {
-                if (ingredientIDsString != null && !ingredientIDsString.isEmpty()) {
-                    String[] ingredientIDs = ingredientIDsString.split(",");
-                    for (String ingredientID : ingredientIDs) {
-                        long ingredientIDLong = Long.parseLong(ingredientID);
-                        dbHelper.insertMealIngredient(mealID, ingredientIDLong);
-                    }
+            if (mealID != -1 && ingredientNames != null && ingredientQuantities != null) {
+                for (int i = 0; i < ingredientNames.size(); i++) {
+                    String ingredientName = ingredientNames.get(i);
+                    String ingredientQuantity = ingredientQuantities.get(i);
+                    long ingredientID = dbHelper.insertIngredient(ingredientName, ingredientQuantity);
+                    dbHelper.insertMealIngredient(mealID, ingredientID);
                 }
-                // Meal successfully added
-                // Redirect to next activity or perform any other action
+                Toast.makeText(CreateMeal2Activity.this, "Meal added successfully!", Toast.LENGTH_SHORT).show();
             } else {
-                // Failed to add meal
-                // Handle the failure scenario
+                Toast.makeText(CreateMeal2Activity.this, "Failed to add meal!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        addStepRowButton.setOnClickListener(v -> addNewStepRow());
     }
 
-    // Convert URI to byte array
+    private void addNewStepRow() {
+        int stepNumber = stepEditTexts.size() + 1;
+        EditText newStepEditText = new EditText(this);
+        newStepEditText.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        newStepEditText.setHint("Bước " + stepNumber);
+        newStepEditText.setInputType(android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        newStepEditText.setGravity(Gravity.START | Gravity.TOP);
+        newStepEditText.setMinLines(3);
+        stepsContainer.addView(newStepEditText);
+        stepEditTexts.add(newStepEditText);
+    }
+
     private byte[] uriToByteArray(Uri uri) {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {
-            InputStream inputStream = getContentResolver().openInputStream(uri);
-            byte[] buffer = new byte[1024];
-            int len;
-            while ((len = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, len);
+            ContentResolver resolver = getContentResolver();
+            InputStream inputStream = resolver.openInputStream(uri);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (inputStream != null) {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    byteArrayOutputStream.write(buffer, 0, bytesRead);
+                }
+                inputStream.close();
+                return byteArrayOutputStream.toByteArray();
             }
-            inputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return outputStream.toByteArray();
+        return null;
     }
 }

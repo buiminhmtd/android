@@ -35,7 +35,7 @@
 
                 <TextView
                     android:id="@+id/title_ek1"
-                    android:layout_width="189dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="46dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="52dp"
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="300dp"
+                    android:layout_marginTop="320dp"
                     android:hint="Tên món ăn"
                     android:textColor="@color/_3_44_pm_color"
                     android:textSize="14sp" />
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="350dp"
+                    android:layout_marginTop="380dp"
                     android:hint="Mô tả"
                     android:textColor="@color/_3_44_pm_color"
                     android:textSize="14sp" />
@@ -116,11 +116,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="60dp"
                     android:orientation="vertical">
                 </LinearLayout>
             </RelativeLayout>
-
 
             <!--Button tiếp tục-->
             <Button

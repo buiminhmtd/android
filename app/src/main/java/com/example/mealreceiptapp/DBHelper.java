@@ -1,5 +1,4 @@
-// Inside DBHelper class
-
+// DBHelper.java
 package com.example.mealreceiptapp;
 
 import android.content.ContentValues;
@@ -37,6 +36,17 @@ public class DBHelper extends SQLiteOpenHelper {
         long mealID = db.insert("MEALS", null, values);
         db.close();
         return mealID;
+    }
+
+    // Method to insert a new ingredient into the database
+    public long insertIngredient(String ingredientName, String ingredientQuantity) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("ingredientName", ingredientName);
+        values.put("ingredientQuantity", ingredientQuantity);
+        long ingredientID = db.insert("INGREDIENTS", null, values);
+        db.close();
+        return ingredientID;
     }
 
     // Method to insert a new meal-ingredient relationship into the database
