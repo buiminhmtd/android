@@ -36,8 +36,8 @@
     <color name="creator_color">#C1C1C1</color>
     <color name="see_all___label_color">#A9A9A9</color>
     <color name="rectangle_1_ek1_color">#298F18</color>
-    <color name="label_ek1_color">#7FFF74</color>
-    <color name="rectangle_1_ek11_color">#302020</color>
+    <color name="bg_ek2_color">#7FFF74</color>
+    <color name="rectangle_1_ek9_color">#302020</color>
 
     <!-- discover colors -->
     <color name="_bg__discover_ek2_color">#FFFFFF</color>

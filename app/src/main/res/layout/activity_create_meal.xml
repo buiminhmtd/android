@@ -130,5 +130,7 @@
                 android:background="@color/bg_color"
                 android:text="Tiếp tục" />
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>
