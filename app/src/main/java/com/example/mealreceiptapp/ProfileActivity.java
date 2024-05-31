@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends AppCompatActivity {
-    private Button editButton;
+    private TextView label;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +20,8 @@ public class ProfileActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        editButton = findViewById(R.id.edit_button);
-        editButton.setOnClickListener(new View.OnClickListener() {
+        label = findViewById(R.id.label);
+        label.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Chuyển hướng sang giao diện "edit"
