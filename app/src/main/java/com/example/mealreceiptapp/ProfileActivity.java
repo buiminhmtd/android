@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Chuyển hướng sang giao diện "edit"
-                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+                Intent intent = new Intent(MainActivity.this, ProfileEditingActivity.class);
                 startActivity(intent);
             }
         });
