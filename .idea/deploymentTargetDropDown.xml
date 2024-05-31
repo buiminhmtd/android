@@ -8,13 +8,13 @@
       <entry key="DiscoverActivity">
         <State />
       </entry>
+      <entry key="HomeActivity">
+        <State />
+      </entry>
       <entry key="NotificationActivity">
         <State />
       </entry>
       <entry key="ProfileActivity">
-        <State />
-      </entry>
-      <entry key="SignInActivity">
         <State />
       </entry>
       <entry key="app">

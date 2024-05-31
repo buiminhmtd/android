@@ -47,15 +47,14 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:background="@color/_bg__login_page_1_ek2_color">
+                    android:layout_marginLeft="20dp">
 
                     <ImageButton
                         android:id="@+id/union_ek7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="15dp"
                         android:background="#FFFFFF"
                         android:src="@drawable/union_ek7" />
 
@@ -64,9 +63,9 @@
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:text="Tìm kiếm món ăn"
+                        android:hint="Tìm kiếm món ăn"
                         android:textColor="@color/rectangle_1_ek9_color"
-                        android:textSize="14sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
 
@@ -117,78 +116,21 @@
 
                 </LinearLayout>
 
-                <!--Khung 1 công thức-->
-                <RelativeLayout
-                    android:id="@+id/card_1_ek1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="56dp">
+                <!--Danh sách món ăn-->
 
-                    <ImageView
-                        android:id="@+id/image_video"
-                        android:layout_width="280dp"
-                        android:layout_height="180dp"
-                        android:src="@drawable/image_video" />
-
-                    <RelativeLayout
-                        android:id="@+id/rating"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/meal_list_layout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@color/bg_ek2_color">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="60dp">
 
-                        <ImageView
-                            android:id="@+id/star"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:layout_marginStart="2dp"
-                            android:layout_marginTop="2dp"
-                            android:contentDescription="star"
-                            android:src="@drawable/star" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/mealRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="192dp"
-                        android:text="@string/title_string"
-                        android:textColor="@color/food_title_color"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <RelativeLayout
-                        android:id="@+id/creator_ek1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="222dp">
-
-                        <ImageView
-                            android:id="@+id/avatar"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:contentDescription="avatar"
-                            android:src="@drawable/avatar" />
-
-                        <TextView
-                            android:id="@+id/name___label"
-                            android:layout_width="129dp"
-                            android:layout_height="26dp"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="3dp"
-                            android:text="@string/name___label_string"
-                            android:textColor="@color/creator_color"
-                            android:textSize="12sp" />
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
+                    </LinearLayout>
 
             </RelativeLayout>
 
@@ -321,13 +263,12 @@
                         android:alpha="0"
                         android:background="@drawable/rectangle_1_ek5_shape" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/union_ek5"
                         android:layout_width="20.67dp"
                         android:layout_height="21.5dp"
                         android:layout_marginStart="1.65dp"
                         android:layout_marginTop="1.25dp"
-                        android:contentDescription="union_ek5"
                         android:src="@drawable/union_ek5" />
 
                 </RelativeLayout>
@@ -349,13 +290,13 @@
                         android:alpha="0"
                         android:background="@drawable/rectangle_1_ek3_shape" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/union_ek3"
                         android:layout_width="16.44dp"
                         android:layout_height="20.5dp"
                         android:layout_marginStart="3.75dp"
                         android:layout_marginTop="1.75dp"
-                        android:contentDescription="union_ek3"
+
                         android:src="@drawable/union_ek3" />
 
                 </RelativeLayout>
@@ -383,22 +324,13 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp">
 
-                        <View
-                            android:id="@+id/rectangle_1_ek4"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:alpha="0"
-                            android:background="@drawable/rectangle_1_ek4_shape" />
 
-                        <ImageView
+                        <ImageButton
                             android:id="@+id/union_ek4"
                             android:layout_width="21.33dp"
                             android:layout_height="21.33dp"
                             android:layout_marginStart="5.33dp"
                             android:layout_marginTop="5.33dp"
-                            android:contentDescription="union_ek4"
                             android:src="@drawable/union_ek4" />
 
                     </RelativeLayout>
@@ -422,13 +354,12 @@
                         android:alpha="0"
                         android:background="@drawable/rectangle_1_ek2_shape" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/union_ek2"
                         android:layout_width="16.26dp"
                         android:layout_height="20.59dp"
                         android:layout_marginStart="3.86dp"
                         android:layout_marginTop="1.76dp"
-                        android:contentDescription="union_ek2"
                         android:src="@drawable/union_ek2" />
 
                 </RelativeLayout>
@@ -450,13 +381,12 @@
                         android:alpha="0"
                         android:background="@drawable/rectangle_1_ek1_shape" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/union_ek1"
                         android:layout_width="15.19dp"
                         android:layout_height="20.76dp"
                         android:layout_marginStart="4.25dp"
                         android:layout_marginTop="1.65dp"
-                        android:contentDescription="union_ek1"
                         android:src="@drawable/union_ek1" />
 
                 </RelativeLayout>

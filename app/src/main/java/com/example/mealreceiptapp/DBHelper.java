@@ -3,8 +3,14 @@ package com.example.mealreceiptapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -58,4 +64,26 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert("MEAL_INGREDIENTS", null, values);
         db.close();
     }
+
+    // DBHelper.java
+    public List<Map<String, Object>> getAllMeals() {
+        List<Map<String, Object>> mealList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("MEALS", null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Map<String, Object> meal = new HashMap<>();
+                meal.put("mealID", cursor.getInt(cursor.getColumnIndexOrThrow("mealID")));
+                meal.put("mealName", cursor.getString(cursor.getColumnIndexOrThrow("mealName")));
+                meal.put("mealImage", cursor.getBlob(cursor.getColumnIndexOrThrow("mealImage")));
+                meal.put("description", cursor.getString(cursor.getColumnIndexOrThrow("description")));
+                meal.put("steps", cursor.getString(cursor.getColumnIndexOrThrow("steps")));
+                mealList.add(meal);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return mealList;
+    }
+
 }

@@ -108,18 +108,18 @@
                             android:layout_width="335dp"
                             android:layout_height="76dp" />
 
-                        <TextView android:id="@+id/label_ek1"
-                            android:fontFamily="Poppins"
-                            android:layout_gravity="center_vertical|end"
-                            android:gravity="end"
-                            android:textSize="14sp"
-                            android:textColor="@color/label_ek1_color"
-                            android:layout_marginLeft="281dp"
-                            android:layout_marginTop="28dp"
+                        <TextView
+                            android:id="@+id/label_ek1"
                             android:layout_width="48dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginLeft="281dp"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="Poppins"
+                            android:gravity="end"
                             android:text="@string/label_ek1_string"
-                            />
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
 
 
                         <RelativeLayout android:id="@+id/icon___noodles"
@@ -167,18 +167,18 @@
                             android:layout_width="335dp"
                             android:layout_height="76dp" />
 
-                        <TextView android:id="@+id/label_ek2"
-                            android:fontFamily="Poppins"
-                            android:layout_gravity="center_vertical|end"
-                            android:gravity="end"
-                            android:textSize="14sp"
-                            android:textColor="@color/label_ek1_color"
-                            android:layout_marginLeft="281dp"
-                            android:layout_marginTop="28dp"
+                        <TextView
+                            android:id="@+id/label_ek2"
                             android:layout_width="48dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginLeft="281dp"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="Poppins"
+                            android:gravity="end"
                             android:text="@string/label_ek2_string"
-                            />
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
 
 
                         <RelativeLayout android:id="@+id/icon___noodles_ek1"
@@ -226,18 +226,18 @@
                             android:layout_width="335dp"
                             android:layout_height="76dp" />
 
-                        <TextView android:id="@+id/label_ek3"
-                            android:fontFamily="Poppins"
-                            android:layout_gravity="center_vertical|end"
-                            android:gravity="end"
-                            android:textSize="14sp"
-                            android:textColor="@color/label_ek1_color"
-                            android:layout_marginLeft="290dp"
-                            android:layout_marginTop="28dp"
+                        <TextView
+                            android:id="@+id/label_ek3"
                             android:layout_width="39dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginLeft="290dp"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="Poppins"
+                            android:gravity="end"
                             android:text="@string/label_ek3_string"
-                            />
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
 
 
                         <RelativeLayout android:id="@+id/icon___noodles_ek2"
@@ -285,18 +285,18 @@
                             android:layout_width="335dp"
                             android:layout_height="76dp" />
 
-                        <TextView android:id="@+id/label_ek4"
-                            android:fontFamily="Poppins"
-                            android:layout_gravity="center_vertical|end"
-                            android:gravity="end"
-                            android:textSize="14sp"
-                            android:textColor="@color/label_ek1_color"
-                            android:layout_marginLeft="273dp"
-                            android:layout_marginTop="28dp"
+                        <TextView
+                            android:id="@+id/label_ek4"
                             android:layout_width="56dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginLeft="273dp"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="Poppins"
+                            android:gravity="end"
                             android:text="@string/label_ek4_string"
-                            />
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
 
 
                         <RelativeLayout android:id="@+id/icon___noodles_ek3"
@@ -344,18 +344,18 @@
                             android:layout_width="335dp"
                             android:layout_height="76dp" />
 
-                        <TextView android:id="@+id/label_ek5"
-                            android:fontFamily="Poppins"
-                            android:layout_gravity="center_vertical|end"
-                            android:gravity="end"
-                            android:textSize="14sp"
-                            android:textColor="@color/label_ek1_color"
-                            android:layout_marginLeft="273dp"
-                            android:layout_marginTop="28dp"
+                        <TextView
+                            android:id="@+id/label_ek5"
                             android:layout_width="56dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginLeft="273dp"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="Poppins"
+                            android:gravity="end"
                             android:text="@string/label_ek5_string"
-                            />
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
 
 
                         <RelativeLayout android:id="@+id/icon___noodles_ek4"
