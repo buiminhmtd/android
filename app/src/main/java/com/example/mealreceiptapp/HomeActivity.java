@@ -1,14 +1,14 @@
 package com.example.mealreceiptapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements MealAdapter.OnItemClickListener {
 
     private RecyclerView mealRecyclerView;
     private MealAdapter mealAdapter;
@@ -26,7 +26,19 @@ public class HomeActivity extends AppCompatActivity {
         mealList = dbHelper.getAllMeals();
 
         mealAdapter = new MealAdapter(this, mealList);
+        mealAdapter.setOnItemClickListener(this); // Set item click listener
         mealRecyclerView.setAdapter(mealAdapter);
     }
-}
 
+    // Implement the onItemClick method from MealAdapter.OnItemClickListener interface
+    @Override
+    public void onItemClick(int position) {
+        // Get the meal ID of the clicked item
+        int mealID = (int) mealList.get(position).get("mealID");
+
+        // Open the MealActivity with the selected meal ID
+        Intent intent = new Intent(this, MealActivity.class);
+        intent.putExtra("mealID", mealID);
+        startActivity(intent);
+    }
+}

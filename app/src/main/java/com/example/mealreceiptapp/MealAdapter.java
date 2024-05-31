@@ -1,7 +1,7 @@
-// MealAdapter.java
 package com.example.mealreceiptapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -20,6 +20,11 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
 
     private Context context;
     private List<Map<String, Object>> mealList;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
 
     public MealAdapter(Context context, List<Map<String, Object>> mealList) {
         this.context = context;
@@ -47,11 +52,22 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
         } else {
             holder.mealImage.setImageResource(R.drawable.placeholder_image); // Use a placeholder image if no image is found
         }
+
+        // Set onClickListener to open MealActivity with the selected meal ID
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(position); // Notify the listener when an item is clicked
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return mealList.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     public static class MealViewHolder extends RecyclerView.ViewHolder {
