@@ -650,7 +650,7 @@
                             android:fontFamily="SF Pro Text"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:textColor="@color/rectangle_ek1_color"
+                            android:textColor="@color/lp_rectangle_ek1_color"
                             android:layout_marginLeft="29.5dp"
                             android:layout_marginTop="2dp"
                             android:layout_width="60.5dp"

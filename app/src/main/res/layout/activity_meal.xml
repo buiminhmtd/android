@@ -47,16 +47,16 @@
                 android:orientation="vertical">
 
                 <!--Hình ảnh món ăn-->
+
+                <!--Review-->
                 <ImageView
                     android:id="@+id/mealImage"
                     android:layout_width="335dp"
                     android:layout_height="200dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="0dp"
-                    android:contentDescription="food_thumbnail"
-                    android:src="@drawable/food_thumbnail" />
+                    android:contentDescription="Meal image" />
 
-                <!--Review-->
                 <RelativeLayout
                     android:id="@+id/label___reviews"
                     android:layout_width="wrap_content"
@@ -160,17 +160,6 @@
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="24dp">
 
-                            <TextView
-                                android:id="@+id/label_ek7"
-
-                                android:layout_width="128dp"
-                                android:layout_height="30dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="0dp"
-                                android:text="@string/label_ek7_string"
-                                android:textColor="@color/total_reviews___label_color"
-                                android:textSize="14sp" />
-
 
                             <RelativeLayout
                                 android:id="@+id/iconly_curved_location"
@@ -188,15 +177,6 @@
                                     android:alpha="0"
                                     android:background="@drawable/rectangle_1_ek1_shape" />
 
-                                <ImageView
-                                    android:id="@+id/exclude"
-                                    android:layout_width="10dp"
-                                    android:layout_height="12dp"
-                                    android:layout_marginStart="3dp"
-                                    android:layout_marginTop="2dp"
-                                    android:contentDescription="exclude"
-                                    android:src="@drawable/exclude" />
-
                             </RelativeLayout>
 
                         </RelativeLayout>
@@ -208,7 +188,7 @@
                             android:layout_height="33dp"
                             android:layout_marginLeft="0dp"
                             android:layout_marginTop="0dp"
-                            android:text="@string/label_ek8_string"
+                            android:text="Admin"
                             android:textColor="@color/title_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -275,7 +255,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-
             <ImageView
                 android:id="@+id/image_1"
                 android:layout_width="335dp"
@@ -291,6 +270,7 @@
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:text="Xem công thức nấu"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

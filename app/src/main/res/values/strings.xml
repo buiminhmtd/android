@@ -24,7 +24,7 @@
     <string name="n_tng_tin_string">Nhớ thông tin</string>
 
     <!--  login_page_1 strings  -->
-    <string name="__ng_np_string">Đăng nhập</string>
+    <string name="dangnhapstring">Đăng nhập</string>
     <string name="__ng_np_ek1_string">Đăng nhập</string>
     <string name="qu_n_m_t_ku__string">Quên mật khẩu?</string>
     <string name="ca_c__t_i_kho_n____ng_k__string">Chưa có tài khoản? Đăng ký</string>

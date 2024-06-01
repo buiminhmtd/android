@@ -86,4 +86,27 @@ public class DBHelper extends SQLiteOpenHelper {
         return mealList;
     }
 
+    public Map<String, Object> getMealByID(int mealID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("MEALS", null, "mealID = ?", new String[]{String.valueOf(mealID)}, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Map<String, Object> meal = new HashMap<>();
+            meal.put("mealID", cursor.getInt(cursor.getColumnIndexOrThrow("mealID")));
+            meal.put("mealName", cursor.getString(cursor.getColumnIndexOrThrow("mealName")));
+            meal.put("mealImage", cursor.getBlob(cursor.getColumnIndexOrThrow("mealImage")));
+            meal.put("description", cursor.getString(cursor.getColumnIndexOrThrow("description")));
+            meal.put("steps", cursor.getString(cursor.getColumnIndexOrThrow("steps")));
+            cursor.close();
+            db.close();
+            return meal;
+        } else {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+            return null;
+        }
+    }
+
 }
