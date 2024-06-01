@@ -108,5 +108,33 @@ public class DBHelper extends SQLiteOpenHelper {
             return null;
         }
     }
+    // Method to add a user
+    public boolean addUser(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("username", username);
+        values.put("password", password);
+
+        long result = db.insert("USERS", null, values);
+        db.close();
+
+        return result != -1;
+    }
+
+    // Method to check user credentials
+    public boolean checkUser(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = { "username" };
+        String selection = "username" + " = ? AND " + "password" + " = ?";
+        String[] selectionArgs = { username, password };
+
+        Cursor cursor = db.query("USERS", columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+
+        return count > 0;
+    }
+
 
 }

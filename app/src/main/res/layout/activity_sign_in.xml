@@ -24,32 +24,21 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/_bg__login_page_1_ek2_shape" />
 
-
-                <Button
-                    android:id="@+id/start_button"
-                    android:layout_width="240dp"
-                    android:layout_height="60dp"
-                    android:text="@string/dangnhapstring"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:paddingLeft="32dp"
-                    android:paddingRight="32dp"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp"
-                    android:background="@color/xanh"
-                    android:layout_below="@id/checkbox_nhothongtin"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp" />
-
-
                 <RelativeLayout
-                    android:id="@+id/logo"
+                    android:id="@+id/logo_ek1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="114dp"
+                    android:layout_marginStart="80dp"
                     android:layout_marginTop="77dp">
 
+                    <ImageView
+                        android:id="@+id/logo_1_ek1"
+                        android:layout_width="193dp"
+                        android:layout_height="161dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="0dp"
+                        android:contentDescription="logo_1_ek1"
+                        android:src="@drawable/logo_1_ek1" />
                 </RelativeLayout>
 
                 <TextView
@@ -72,7 +61,8 @@
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="380dp"
-                    android:background="@drawable/rectangle_38_shape" />
+                    android:background="@drawable/rectangle_38_shape"
+                    android:hint="Email" />
 
                 <EditText
                     android:id="@+id/textviewmatkhau"
@@ -80,7 +70,9 @@
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="490dp"
-                    android:background="@drawable/rectangle_39_shape" />
+                    android:background="@drawable/rectangle_39_shape"
+                    android:inputType="textPassword"
+                    android:hint="Mật khẩu" />
 
                 <TextView
                     android:id="@+id/taikhoan"
@@ -108,7 +100,46 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
+                <CheckBox
+                    android:id="@+id/checkbox_nhothongtin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="550dp"
+                    android:fontFamily="Inter"
+                    android:text="Nhớ thông tin"
+                    android:textColor="@color/nh__th_ng_tin_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
+                <CheckBox
+                    android:id="@+id/checkbox_show_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="550dp"
+                    android:fontFamily="Inter"
+                    android:text="Hiển thị mật khẩu"
+                    android:textColor="@color/nh__th_ng_tin_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/start_button"
+                    android:layout_width="240dp"
+                    android:layout_height="60dp"
+                    android:text="@string/dangnhapstring"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingLeft="32dp"
+                    android:paddingRight="32dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:background="@color/xanh"
+                    android:layout_below="@id/checkbox_nhothongtin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp" />
 
                 <TextView
                     android:id="@+id/chuacotaikhoan"
@@ -124,40 +155,7 @@
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:layout_below="@+id/start_button"/>
-
-                <CheckBox
-                    android:id="@+id/checkbox_nhothongtin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="550dp"
-                    android:fontFamily="Inter"
-                    android:text="Nhớ thông tin"
-                    android:textColor="@color/nh__th_ng_tin_color"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:id="@+id/logo_ek1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="77dp">
-
-                    <ImageView
-                        android:id="@+id/logo_1_ek1"
-                        android:layout_width="193dp"
-                        android:layout_height="161dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="0dp"
-                        android:contentDescription="logo_1_ek1"
-                        android:src="@drawable/logo_1_ek1" />
-
-                </RelativeLayout>
-
-
             </RelativeLayout>
         </RelativeLayout>
-
     </RelativeLayout>
 </RelativeLayout>

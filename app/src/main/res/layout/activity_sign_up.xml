@@ -24,24 +24,22 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/_bg__login_page_1_ek2_shape" />
 
-
                 <Button
                     android:id="@+id/start_button"
                     android:layout_width="240dp"
-                    android:layout_height="44dp"
-                    android:text="Đăng ký"
+                    android:layout_height="50dp"
+                    android:text="@string/dangkystring"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:paddingLeft="32dp"
                     android:paddingRight="32dp"
-                    android:paddingTop="16dp"
+                    android:paddingTop="5dp"
                     android:paddingBottom="16dp"
                     android:background="@color/xanh"
-                    android:layout_below="@id/checkbox_nhothongtin"
+                    android:layout_below="@id/checkbox_show_password"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp" />
-
+                    android:layout_marginTop="7dp" />
 
                 <RelativeLayout
                     android:id="@+id/logo"
@@ -49,39 +47,62 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="114dp"
                     android:layout_marginTop="77dp">
-
                 </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/dangnhap"
+                    android:id="@+id/dangky"
                     android:layout_width="120dp"
                     android:layout_height="38dp"
                     android:layout_gravity="center_horizontal|center"
                     android:gravity="center"
                     android:layout_marginLeft="125dp"
-                    android:layout_marginTop="270dp"
+                    android:layout_marginTop="240dp"
                     android:fontFamily="Inter"
                     android:text="Đăng ký"
                     android:textColor="@color/_3_44_pm_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <View
-                    android:id="@+id/viewtaikhoan"
+                <EditText
+                    android:id="@+id/textviewtaikhoan"
                     android:layout_width="340dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="380dp"
-                    android:background="@drawable/rectangle_38_shape" />
+                    android:layout_marginTop="340dp"
+                    android:background="@drawable/rectangle_38_shape"
+                    android:hint="Email" />
 
-                <View
-                    android:id="@+id/viewmatkhau"
+                <EditText
+                    android:id="@+id/textviewmatkhau"
                     android:layout_width="340dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="490dp"
-                    android:background="@drawable/rectangle_39_shape" />
+                    android:layout_marginTop="440dp"
+                    android:background="@drawable/rectangle_39_shape"
+                    android:inputType="textPassword"
+                    android:hint="Mật khẩu" />
 
+                <EditText
+                    android:id="@+id/textviewmatkhau_confirm"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="540dp"
+                    android:background="@drawable/rectangle_39_shape"
+                    android:hint="Xác nhận mật khẩu"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    android:id="@+id/xacnhanmatkhau"
+                    android:layout_width="130dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="500dp"
+                    android:fontFamily="Inter"
+                    android:text="Xác nhận mật khẩu*"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/taikhoan"
                     android:layout_width="64dp"
@@ -89,9 +110,9 @@
                     android:layout_gravity="center_horizontal|center"
                     android:gravity="center"
                     android:layout_marginLeft="13dp"
-                    android:layout_marginTop="340dp"
+                    android:layout_marginTop="300dp"
                     android:fontFamily="Inter"
-                    android:text="Nhập email"
+                    android:text="Email*"
                     android:textColor="@color/_3_44_pm_color"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -101,14 +122,12 @@
                     android:layout_width="102dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="450dp"
+                    android:layout_marginTop="400dp"
                     android:fontFamily="Inter"
                     android:text="Mật khẩu*"
                     android:textColor="@color/_3_44_pm_color"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
-
 
                 <TextView
                     android:id="@+id/dacotaikhoan"
@@ -123,16 +142,19 @@
                     android:textColor="@color/_3_44_pm_color"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:layout_below="@+id/start_button"/>
+                    android:layout_below="@+id/start_button" />
 
+
+
+                <!-- Thêm CheckBox để hiển thị mật khẩu -->
                 <CheckBox
-                    android:id="@+id/checkbox_nhothongtin"
+                    android:id="@+id/checkbox_show_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="550dp"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="600dp"
                     android:fontFamily="Inter"
-                    android:text="Nhớ thông tin"
+                    android:text="Hiển thị mật khẩu"
                     android:textColor="@color/nh__th_ng_tin_color"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -142,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="77dp">
+                    android:layout_marginTop="55dp">
 
                     <ImageView
                         android:id="@+id/logo_1_ek1"
@@ -154,10 +176,7 @@
                         android:src="@drawable/logo_1_ek1" />
 
                 </RelativeLayout>
-
-
             </RelativeLayout>
         </RelativeLayout>
-
     </RelativeLayout>
 </RelativeLayout>

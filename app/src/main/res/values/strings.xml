@@ -11,7 +11,7 @@
     <!-- sign_up_page_1 string -->
     <string name="_3_44_pm_string">3:44 PM</string>
     <string name="__ng_k__string">Đăng ký</string>
-    <string name="__ng_k__ek1_string">Đăng ký</string>
+    <string name="dangkystring">Đăng ký</string>
     <string name="ho_c_string">hoặc</string>
     <string name="ti_p_t_c_v_i_string">Tiếp tục với</string>
     <string name="email__string">Email*</string>
