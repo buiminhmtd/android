@@ -1,6 +1,9 @@
 package com.example.mealreceiptapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Chuyển hướng sang giao diện "edit"
-                Intent intent = new Intent(MainActivity.this, ProfileEditingActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, ProfileEditingActivity.class);
                 startActivity(intent);
             }
         });

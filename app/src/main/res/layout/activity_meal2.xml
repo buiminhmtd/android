@@ -1,22 +1,22 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/main"
     android:orientation="vertical">
 
-    <ScrollView android:id="@+id/recipe_detail2"
+    <ScrollView
+        android:id="@+id/recipe_detail2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/content_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
             android:orientation="vertical">
 
-            <!--Header-->
+            <!-- Header -->
             <RelativeLayout
                 android:id="@+id/heading"
                 android:layout_width="match_parent"
@@ -35,26 +35,24 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <!--Thông tin món ăn-->
+            <!-- Thông tin món ăn -->
             <LinearLayout
                 android:id="@+id/Information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
-                <!--Hình ảnh món ăn-->
+                <!-- Hình ảnh món ăn -->
                 <ImageView
                     android:id="@+id/food_thumbnail"
-                    android:layout_width="335dp"
+                    android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_margin="30dp"
                     android:contentDescription="food_thumbnail"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/food_thumbnail" />
 
-                <!--Review-->
+                <!-- Review -->
                 <RelativeLayout
                     android:id="@+id/label___reviews"
                     android:layout_width="wrap_content"
@@ -64,49 +62,32 @@
 
                     <TextView
                         android:id="@+id/total_reviews___label"
-
                         android:layout_width="118dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="49dp"
-                        android:layout_marginTop="0dp"
                         android:text="@string/total_reviews___label_string"
                         android:textColor="@color/total_reviews___label_color"
                         android:textSize="14sp" />
-
 
                     <RelativeLayout
                         android:id="@+id/rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp">
-
+                        android:layout_marginStart="0dp">
 
                         <RelativeLayout
                             android:id="@+id/icon_star"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="0dp"
                             android:layout_marginTop="2dp">
-
-                            <View
-                                android:id="@+id/rectangle_1"
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="0dp"
-                                android:alpha="0"
-                                android:background="@drawable/rectangle_1_shape" />
 
                             <ImageView
                                 android:id="@+id/star"
                                 android:layout_width="12dp"
                                 android:layout_height="12dp"
                                 android:layout_marginStart="2dp"
-                                android:layout_marginTop="2dp"
                                 android:contentDescription="star"
                                 android:src="@drawable/star" />
-
                         </RelativeLayout>
 
                         <TextView
@@ -114,17 +95,14 @@
                             android:layout_width="41dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="19dp"
-                            android:layout_marginTop="0dp"
                             android:text="@string/label_ek6_string"
                             android:textColor="@color/title_color"
                             android:textSize="14sp"
                             android:textStyle="bold" />
-
                     </RelativeLayout>
-
                 </RelativeLayout>
 
-                <!--Khung thông tin-->
+                <!-- Khung thông tin -->
                 <RelativeLayout
                     android:id="@+id/creator"
                     android:layout_width="wrap_content"
@@ -132,124 +110,75 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="10dp">
 
-                    <!--Avatar-->
+                    <!-- Avatar -->
                     <ImageView
                         android:id="@+id/avatar"
                         android:layout_width="41dp"
                         android:layout_height="41dp"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="2dp"
                         android:contentDescription="avatar"
                         android:src="@drawable/avatar" />
 
-                    <!--Thông tin-->
+                    <!-- Thông tin -->
                     <RelativeLayout
                         android:id="@+id/info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="51dp"
-                        android:layout_marginTop="0dp">
+                        android:layout_marginStart="51dp">
 
-                        <!--Địa điểm-->
+                        <!-- Địa điểm -->
                         <RelativeLayout
                             android:id="@+id/location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="0dp"
                             android:layout_marginTop="24dp">
-
-                            <TextView
-                                android:id="@+id/label_ek7"
-
-                                android:layout_width="128dp"
-                                android:layout_height="30dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="0dp"
-                                android:text="@string/label_ek7_string"
-                                android:textColor="@color/total_reviews___label_color"
-                                android:textSize="14sp" />
-
 
                             <RelativeLayout
                                 android:id="@+id/iconly_curved_location"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="2dp">
-
-                                <View
-                                    android:id="@+id/rectangle_1_ek1"
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:layout_marginStart="0dp"
-                                    android:layout_marginTop="0dp"
-                                    android:alpha="0"
-                                    android:background="@drawable/rectangle_1_ek1_shape" />
-
-                                <ImageView
-                                    android:id="@+id/exclude"
-                                    android:layout_width="10dp"
-                                    android:layout_height="12dp"
-                                    android:layout_marginStart="3dp"
-                                    android:layout_marginTop="2dp"
-                                    android:contentDescription="exclude"
-                                    android:src="@drawable/exclude" />
-
-                            </RelativeLayout>
-
+                                android:layout_marginTop="2dp"/>
                         </RelativeLayout>
 
-                        <!--Họ tên-->
+                        <!-- Họ tên -->
                         <TextView
                             android:id="@+id/label_ek8"
-
                             android:layout_width="161dp"
                             android:layout_height="33dp"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginTop="0dp"
-                            android:text="@string/label_ek8_string"
+                            android:text="Admin"
                             android:textColor="@color/title_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
-
                     </RelativeLayout>
-
                 </RelativeLayout>
 
-
-                <!--Nút lưu công thức-->
+                <!-- Nút lưu công thức -->
                 <ImageView
                     android:id="@+id/save"
-                    android:layout_width="16.44dp"
-                    android:layout_height="20.5dp"
-                    android:layout_marginLeft="340dp"
-                    android:layout_marginTop="-95dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="340dp"
+                    android:layout_marginTop="-90dp"
                     android:src="@drawable/union" />
-
             </LinearLayout>
 
-
-            <!--Steps-->
+            <!-- Steps -->
             <LinearLayout
                 android:id="@+id/steps_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
 
-                <!--Header hướng dẫn-->
+                <!-- Header hướng dẫn -->
                 <RelativeLayout
                     android:id="@+id/header"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="12dp">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/title"
-                        android:layout_width="189dp"
-                        android:layout_height="42dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Hướng dẫn"
                         android:textColor="@color/title_color"
                         android:textSize="20sp"
@@ -259,99 +188,59 @@
                         android:id="@+id/label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="300dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
                         android:text="@string/label_string"
                         android:textColor="@color/title_color"
                         android:textSize="14sp" />
-
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/buoc1"
+                <!-- Steps (to be dynamically added) -->
+                <LinearLayout
+                    android:id="@+id/steps_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20dp"
-                    android:hint="Bước 1" />
-
-                <TextView
-                    android:id="@+id/buoc2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20dp"
-                    android:hint="Bước 2" />
-
-                <TextView
-                    android:id="@+id/buoc3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20dp"
-                    android:hint="Bước 3" />
-
+                    android:orientation="vertical">
+                    <!-- Steps will be added here dynamically -->
+                </LinearLayout>
             </LinearLayout>
 
-            <!--Bình luận-->
-            <LinearLayout android:id="@+id/ingredients_ek1"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="0dp"
+            <!-- Bình luận -->
+            <LinearLayout
+                android:id="@+id/ingredients_ek1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
-                <!--Bình luận header-->
-                <RelativeLayout android:id="@+id/header_ek1"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="20dp"
+                <!-- Bình luận header -->
+                <RelativeLayout
+                    android:id="@+id/header_ek1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="20dp">
 
-                    <TextView android:id="@+id/binhLuan"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/rectangle_1_color"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="0dp"
+                    <TextView
+                        android:id="@+id/binhLuan"
                         android:layout_width="189dp"
                         android:layout_height="42dp"
-                        android:text="Bình luận"/>
-
+                        android:text="Bình luận"
+                        android:textColor="@color/rectangle_1_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
-                <LinearLayout android:id="@+id/frame_263_ek1"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
+                <!-- Reviews (to be dynamically added) -->
+                <LinearLayout
+                    android:id="@+id/reviews_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/avatar_ek1"
-                        android:src="@drawable/avatar_ek1"
-                        android:contentDescription="avatar_ek1"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="41dp"
-                        android:layout_height="41dp"/>
-
-                    <TextView android:id="@+id/binhLuan1"
-                        android:textSize="16sp"
-                        android:textColor="@color/b__c_1_color"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_width="89dp"
-                        android:layout_height="27dp"
-                        android:text="@string/b_nh_lu_n_1_string"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp">
+                    <!-- Reviews will be added here dynamically -->
                 </LinearLayout>
-
             </LinearLayout>
-
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>
