@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView label;
+    private ImageView avatarImage;
+    private TextView labelTextView;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +26,26 @@ public class ProfileActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        label = findViewById(R.id.label);
-        label.setOnClickListener(new View.OnClickListener() {
+        avatarImage = findViewById(R.id.avatar);
+        labelTextView = findViewById(R.id.label);
+
+        avatarImage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                // Chuyển hướng sang giao diện "edit"
-                Intent intent = new Intent(ProfileActivity.this, ProfileEditingActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                openEditingProfileActivity();
             }
         });
+
+        labelTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openEditingProfileActivity();
+            }
+        });
+    }
+
+    private void openEditingProfileActivity() {
+        Intent intent = new Intent(ProfileActivity.this, ProfileEditingActivity.class);
+        startActivity(intent);
     }
 }
