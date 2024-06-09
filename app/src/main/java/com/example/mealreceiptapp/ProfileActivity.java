@@ -43,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView homeImageView;
     private ImageView discoverImageView;
     private ImageView notificationImageView;
-
+    private DBHelper dbHelper;
     private int selectedFeedId;
 
     @Override
@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
         homeImageView = findViewById(R.id.union_ek5);
         discoverImageView = findViewById(R.id.union_ek3);
         notificationImageView = findViewById(R.id.union_ek2);
-
+        dbHelper = new DBHelper(this);
         // Set click listeners
         fieldLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,10 +197,10 @@ public class ProfileActivity extends AppCompatActivity {
     private void displayFeeds() {
         // Query feeds from database
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM feeds", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM MEALS", null);
 
         // Get the column index for "id"
-        int feedIdColumnIndex = cursor.getColumnIndex("id");
+        int feedIdColumnIndex = cursor.getColumnIndex("mealID");
 
         // Iterate over the cursor and display each feed as an ImageView
         while (cursor.moveToNext()) {
