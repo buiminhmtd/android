@@ -291,12 +291,11 @@
                         android:background="@drawable/rectangle_1_ek3_shape" />
 
                     <ImageButton
-                        android:id="@+id/union_ek3"
+                        android:id="@+id/savedMeals"
                         android:layout_width="16.44dp"
                         android:layout_height="20.5dp"
                         android:layout_marginStart="3.75dp"
                         android:layout_marginTop="1.75dp"
-
                         android:src="@drawable/union_ek3" />
 
                 </RelativeLayout>

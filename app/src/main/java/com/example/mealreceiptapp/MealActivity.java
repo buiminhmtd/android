@@ -11,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,7 +42,6 @@ public class MealActivity extends AppCompatActivity {
 
         if (mealID == -1) {
             // Handle error, mealID was not passed correctly
-            // For example, show a toast or finish the activity
             finish();
             return;
         }
@@ -67,6 +68,18 @@ public class MealActivity extends AppCompatActivity {
                 Intent intent = new Intent(MealActivity.this, Meal2Activity.class);
                 intent.putExtra("mealID", mealID); // Pass the mealID to MealDetailActivity
                 startActivity(intent);
+            }
+        });
+
+        // Find the save button
+        ImageButton saveButton = findViewById(R.id.save);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add meal to saved list in database
+                dbHelper.addSavedMeal(mealID);
+                // Show a toast or perform any other action to indicate successful saving
+                Toast.makeText(MealActivity.this, "Meal saved successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -110,7 +123,6 @@ public class MealActivity extends AppCompatActivity {
         // Close database connection
         db.close();
     }
-
 
     private int getReviewCountForMeal(int mealID) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();

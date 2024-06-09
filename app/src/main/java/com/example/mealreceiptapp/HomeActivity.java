@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageButton;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +15,7 @@ public class HomeActivity extends AppCompatActivity implements MealAdapter.OnIte
     private RecyclerView mealRecyclerView;
     private MealAdapter mealAdapter;
     private List<Map<String, Object>> mealList;
+    private ImageButton savedMealsButton; // Add reference to the saved meals button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,19 @@ public class HomeActivity extends AppCompatActivity implements MealAdapter.OnIte
         mealAdapter = new MealAdapter(this, mealList);
         mealAdapter.setOnItemClickListener(this); // Set item click listener
         mealRecyclerView.setAdapter(mealAdapter);
+
+        // Find the saved meals button by ID
+        savedMealsButton = findViewById(R.id.savedMeals);
+
+        // Set OnClickListener for the saved meals button
+        savedMealsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open SavedMealsActivity when the button is clicked
+                Intent intent = new Intent(HomeActivity.this, SavedMealsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // Implement the onItemClick method from MealAdapter.OnItemClickListener interface

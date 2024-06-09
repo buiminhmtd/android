@@ -1,4 +1,3 @@
-// DBHelper.java
 package com.example.mealreceiptapp;
 
 import android.content.ContentValues;
@@ -23,12 +22,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // No need to create tables here since they already exist in the database
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Upgrade logic if needed
+
     }
 
     // Method to insert a new meal into the database
@@ -36,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("mealName", mealName);
-        values.put("mealImage", mealImage); // Store image as blob
+        values.put("mealImage", mealImage);
         values.put("description", description);
         values.put("steps", steps);
         long mealID = db.insert("MEALS", null, values);
@@ -62,6 +61,15 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("mealID", mealID);
         values.put("ingredientID", ingredientID);
         db.insert("MEAL_INGREDIENTS", null, values);
+        db.close();
+    }
+
+    // Method to add a saved meal to the database
+    public void addSavedMeal(int mealID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("mealID", mealID);
+        db.insert("SAVED_MEALS", null, values);
         db.close();
     }
 
@@ -108,6 +116,7 @@ public class DBHelper extends SQLiteOpenHelper {
             return null;
         }
     }
+
     // Method to add a user
     public boolean addUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -135,6 +144,4 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return count > 0;
     }
-
-
 }
