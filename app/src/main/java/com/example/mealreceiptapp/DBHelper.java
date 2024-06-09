@@ -144,4 +144,47 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return count > 0;
     }
+    public Map<String, Object> getUserByID(int userID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"fullname", "mota"};
+        String selection = "userID" + " = ?";
+        String[] selectionArgs = {String.valueOf(userID)};
+        Cursor cursor = db.query("USERS", columns, selection, selectionArgs, null, null, null);
+
+        Map<String, Object> user = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            user = new HashMap<>();
+            int usernameIndex = cursor.getColumnIndex("fullname");
+            int motaIndex = cursor.getColumnIndex("mota");
+
+            if (usernameIndex != -1 && motaIndex != -1) {
+                String username = cursor.getString(usernameIndex);
+                String mota = cursor.getString(motaIndex);
+
+                user.put("username", username);
+                user.put("mota", mota);
+            }
+
+            cursor.close();
+        }
+
+        return user;
+    }
+    public boolean updateUserImage(int userID, byte[] userImage) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("profileImage", userImage);
+
+        int rowsAffected = db.update("USERS", values, "userID" + " = ?", new String[]{String.valueOf(userID)});
+        return rowsAffected > 0;
+    }
+    public boolean updateUser(int userID, String username, String mota) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("fullname", username);
+        values.put("mota", mota);
+
+        int rowsAffected = db.update("USERS", values, "userID" + " = ?", new String[]{String.valueOf(userID)});
+        return rowsAffected > 0;
+    }
 }
