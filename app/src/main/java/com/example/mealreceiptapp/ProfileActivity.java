@@ -29,17 +29,29 @@ public class ProfileActivity extends AppCompatActivity {
     private RelativeLayout fieldRelativeLayout;
     private RelativeLayout feedsRelativeLayout;
     private ImageView bgImageView;
+    private TextView usernameTextView;
+    private TextView bioTextView;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        usernameTextView = findViewById(R.id.username);
+        bioTextView = findViewById(R.id.bio);
         dbHelper = new DBHelper(this);
         avatarImageView = findViewById(R.id.avatar);
         fieldRelativeLayout = findViewById(R.id.field);
         feedsRelativeLayout = findViewById(R.id.feeds);
         bgImageView = findViewById(R.id.bg_ek1);
+        db = dbHelper.getReadableDatabase();
+        
+        String username = getUsernameFromDatabase();
+        String selfDescription = getSelfDescriptionFromDatabase();
+
+        usernameTextView.setText(username);
+        bioTextView.setText(selfDescription);
 
         // Set click listener for the avatar image view
         avatarImageView.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +210,42 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
         cursor.close();
+        db.close();
+    }
+    private String getUsernameFromDatabase() {
+        String username = "";
+
+        Cursor cursor = db.query("USERS", new String[]{"username"}, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            int usernameColumnIndex = cursor.getColumnIndex("username");
+            if (usernameColumnIndex != -1) {
+                username = cursor.getString(usernameColumnIndex);
+            }
+        }
+        cursor.close();
+
+        return username;
+    }
+
+    private String getSelfDescriptionFromDatabase() {
+        String selfDescription = "";
+
+        Cursor cursor = db.query("USERS", new String[]{"selfDescription"}, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            int selfDescriptionColumnIndex = cursor.getColumnIndex("selfDescription");
+            if (selfDescriptionColumnIndex != -1) {
+                selfDescription = cursor.getString(selfDescriptionColumnIndex);
+            }
+        }
+        cursor.close();
+
+        return selfDescription;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Đóng cơ sở dữ liệu khi không cần thiết nữa
         db.close();
     }
 }
