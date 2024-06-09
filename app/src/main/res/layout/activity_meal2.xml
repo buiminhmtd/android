@@ -152,13 +152,13 @@
                 </RelativeLayout>
 
                 <!-- Nút lưu công thức -->
-                <ImageView
+                <ImageButton
                     android:id="@+id/save"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="340dp"
                     android:layout_marginTop="-90dp"
-                    android:src="@drawable/union" />
+                    android:src="@drawable/union_ek3" />
             </LinearLayout>
 
             <!-- Steps -->

@@ -1,0 +1,297 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/main">
+
+    <ScrollView
+        android:id="@+id/discover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+
+            <!--Header-->
+            <RelativeLayout
+                android:id="@+id/heading"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/bg_color">
+
+                <TextView
+                    android:id="@+id/title_ek1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Các công thức đã lưu"
+                    android:textColor="@color/_bg__create_recipe_ek2_color"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--Danh sách công thức đã lưu-->
+            <LinearLayout
+                android:id="@+id/card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <!--Hình ảnh công thức-->
+                <RelativeLayout
+                    android:id="@+id/video"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp">
+
+                    <ImageView
+                        android:id="@+id/mealImage"
+                        android:layout_width="335dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="0dp"
+                        android:contentDescription="image_video"
+                        android:src="@drawable/image_video" />
+
+                    <LinearLayout
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="8dp">
+
+
+                        <ImageView
+                            android:id="@+id/star"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="6dp"
+                            android:contentDescription="star"
+                            android:src="@drawable/star" />
+
+                        <TextView
+                            android:id="@+id/score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginLeft="5dp"
+                            android:text="8.7"
+                            android:textColor="@color/label_ek4_color"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!--Tên công thức-->
+                <TextView
+                    android:id="@+id/mealName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/title_string"
+                    android:textColor="@color/title_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!--Thực hiện bởi-->
+                <RelativeLayout
+                    android:id="@+id/creator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:contentDescription="avatar"
+                        android:src="@drawable/avatar" />
+
+                    <TextView
+                        android:id="@+id/name___label"
+                        android:layout_width="132dp"
+                        android:layout_height="26dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/name___label_string"
+                        android:textColor="@color/name___label_color"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--Thanh menu-->
+            <RelativeLayout
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp">
+
+                <!--Menu home-->
+                <RelativeLayout
+                    android:id="@+id/icon_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek5"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek5_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek5"
+                        android:layout_width="20.67dp"
+                        android:layout_height="21.5dp"
+                        android:layout_marginStart="1.65dp"
+                        android:layout_marginTop="1.25dp"
+                        android:src="@drawable/union_ek5" />
+
+                </RelativeLayout>
+
+                <!--Menu công thức đã lưu-->
+                <RelativeLayout
+                    android:id="@+id/icon_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek3_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek3"
+                        android:layout_width="16.44dp"
+                        android:layout_height="20.5dp"
+                        android:layout_marginStart="3.75dp"
+                        android:layout_marginTop="1.75dp"
+
+                        android:src="@drawable/union_ek3" />
+
+                </RelativeLayout>
+
+                <!--Menu thêm công thức mới-->
+                <RelativeLayout
+                    android:id="@+id/create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="175dp"
+                    android:layout_marginTop="-30dp">
+
+                    <ImageView
+                        android:id="@+id/bg_ek1"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="bg_ek1"
+                        android:src="@drawable/bg_ek1" />
+
+                    <RelativeLayout
+                        android:id="@+id/icon_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp">
+
+
+                        <ImageButton
+                            android:id="@+id/union_ek4"
+                            android:layout_width="21.33dp"
+                            android:layout_height="21.33dp"
+                            android:layout_marginStart="5.33dp"
+                            android:layout_marginTop="5.33dp"
+                            android:src="@drawable/union_ek4" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!--Menu notification-->
+                <RelativeLayout
+                    android:id="@+id/icon_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek2_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek2"
+                        android:layout_width="16.26dp"
+                        android:layout_height="20.59dp"
+                        android:layout_marginStart="3.86dp"
+                        android:layout_marginTop="1.76dp"
+                        android:src="@drawable/union_ek2" />
+
+                </RelativeLayout>
+
+                <!--Menu profile-->
+                <RelativeLayout
+                    android:id="@+id/icon_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="330dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek1_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek1"
+                        android:layout_width="15.19dp"
+                        android:layout_height="20.76dp"
+                        android:layout_marginStart="4.25dp"
+                        android:layout_marginTop="1.65dp"
+                        android:src="@drawable/union_ek1" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
