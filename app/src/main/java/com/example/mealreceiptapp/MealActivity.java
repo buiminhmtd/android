@@ -31,6 +31,7 @@ public class MealActivity extends AppCompatActivity {
     private int mealID;
     private ImageView mealImageView;
     private TextView mealNameTextView, reviewCountTextView;
+    private List<Integer> savedMealIDs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +77,13 @@ public class MealActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Add meal to saved list in database
-                dbHelper.addSavedMeal(mealID);
-                // Show a toast or perform any other action to indicate successful saving
+                savedMealIDs.add(mealID);
+                Intent intent = new Intent(MealActivity.this, SavedMealsActivity.class);
+                intent.putIntegerArrayListExtra("savedMealIDs", new ArrayList<>(savedMealIDs));
                 Toast.makeText(MealActivity.this, "Meal saved successfully", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private void populateMealDetails() {

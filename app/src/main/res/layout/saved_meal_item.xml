@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp">
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
 
     <!-- Meal Image -->
     <ImageView
@@ -19,19 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/title_color"
         android:textSize="20sp"
         android:textStyle="bold" />
-
-    <!-- Creator Name -->
-    <TextView
-        android:id="@+id/name___label"
-        android:layout_width="132dp"
-        android:layout_height="26dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/name___label_color"
-        android:textSize="12sp" />
-
-</RelativeLayout>
+</LinearLayout>
