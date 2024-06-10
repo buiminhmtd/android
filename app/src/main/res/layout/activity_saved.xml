@@ -1,8 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/main">
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/discover"
@@ -43,7 +45,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
-
             </LinearLayout>
 
             <!--Thanh menu-->
@@ -51,7 +52,7 @@
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="580dp">
 
                 <!--Menu home-->
                 <RelativeLayout
@@ -77,7 +78,6 @@
                         android:layout_marginStart="1.65dp"
                         android:layout_marginTop="1.25dp"
                         android:src="@drawable/union_ek5" />
-
                 </RelativeLayout>
 
                 <!--Menu công thức đã lưu-->
@@ -103,9 +103,7 @@
                         android:layout_height="20.5dp"
                         android:layout_marginStart="3.75dp"
                         android:layout_marginTop="1.75dp"
-
                         android:src="@drawable/union_ek3" />
-
                 </RelativeLayout>
 
                 <!--Menu thêm công thức mới-->
@@ -131,7 +129,6 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp">
 
-
                         <ImageButton
                             android:id="@+id/union_ek4"
                             android:layout_width="21.33dp"
@@ -139,9 +136,7 @@
                             android:layout_marginStart="5.33dp"
                             android:layout_marginTop="5.33dp"
                             android:src="@drawable/union_ek4" />
-
                     </RelativeLayout>
-
                 </RelativeLayout>
 
                 <!--Menu notification-->
@@ -168,7 +163,6 @@
                         android:layout_marginStart="3.86dp"
                         android:layout_marginTop="1.76dp"
                         android:src="@drawable/union_ek2" />
-
                 </RelativeLayout>
 
                 <!--Menu profile-->
@@ -195,13 +189,8 @@
                         android:layout_marginStart="4.25dp"
                         android:layout_marginTop="1.65dp"
                         android:src="@drawable/union_ek1" />
-
                 </RelativeLayout>
-
             </RelativeLayout>
-
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>

@@ -31,7 +31,7 @@ public class MealActivity extends AppCompatActivity {
     private int mealID;
     private ImageView mealImageView;
     private TextView mealNameTextView, reviewCountTextView;
-    private List<Integer> savedMealIDs = new ArrayList<>();
+    private static List<Integer> savedMealIDs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,12 +78,13 @@ public class MealActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 savedMealIDs.add(mealID);
-                Intent intent = new Intent(MealActivity.this, SavedMealsActivity.class);
-                intent.putIntegerArrayListExtra("savedMealIDs", new ArrayList<>(savedMealIDs));
                 Toast.makeText(MealActivity.this, "Meal saved successfully", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public static List<Integer> getSavedMealIDs() {
+        return savedMealIDs;
     }
 
     private void populateMealDetails() {
