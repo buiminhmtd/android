@@ -18,6 +18,8 @@ import android.content.ContentValues;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
+import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -33,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView bioTextView;
     private SQLiteDatabase db;
 
+    private List<Map<String, Object>> mealList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         feedsRelativeLayout = findViewById(R.id.feeds);
         bgImageView = findViewById(R.id.bg_ek1);
         db = dbHelper.getReadableDatabase();
+        
         
         String username = getUsernameFromDatabase();
         String selfDescription = getSelfDescriptionFromDatabase();
@@ -79,7 +83,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Start MealActivity
                 // You need to provide the meal ID to the MealActivity
-                int mealID = 1; // Replace with the appropriate meal ID
+                int mealID = (int) mealList.get(v.getVerticalScrollbarPosition()).get("mealID");
+
+                // Open the MealActivity with the selected meal ID
                 Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
                 mealIntent.putExtra("mealID", mealID);
                 startActivity(mealIntent);
@@ -183,8 +189,14 @@ public class ProfileActivity extends AppCompatActivity {
             int avatarColumnIndex = cursor.getColumnIndex("avatar");
             if (avatarColumnIndex != -1) {
                 byte[] imageData = cursor.getBlob(avatarColumnIndex);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
-                avatarImageView.setImageBitmap(bitmap);
+                if (imageData != null && imageData.length > 0) {
+                    // User has an avatar image, decode and display it
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
+                    avatarImageView.setImageBitmap(bitmap);
+                } else {
+                    // User does not have an avatar image, set the default image
+                    avatarImageView.setImageResource(R.drawable.avatar_ek1);
+                }
             }
         }
         cursor.close();
