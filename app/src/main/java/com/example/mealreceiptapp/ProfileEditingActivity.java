@@ -22,7 +22,7 @@ import java.util.Map;
 public class ProfileEditingActivity extends AppCompatActivity {
 
     private static final int GALLERY_REQUEST_CODE = 123;
-    private static final String USER_ID = "user_id";
+    private static final String USER_ID = "userID";
 
     private RelativeLayout galleryLayout;
     private EditText usernameEditText;
