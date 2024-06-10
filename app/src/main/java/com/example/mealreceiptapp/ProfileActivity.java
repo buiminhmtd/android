@@ -215,9 +215,9 @@ public class ProfileActivity extends AppCompatActivity {
     private String getUsernameFromDatabase() {
         String username = "";
 
-        Cursor cursor = db.query("USERS", new String[]{"username"}, null, null, null, null, null);
+        Cursor cursor = db.query("USERS", new String[]{"fullname"}, null, null, null, null, null);
         if (cursor.moveToFirst()) {
-            int usernameColumnIndex = cursor.getColumnIndex("username");
+            int usernameColumnIndex = cursor.getColumnIndex("fullname");
             if (usernameColumnIndex != -1) {
                 username = cursor.getString(usernameColumnIndex);
             }
