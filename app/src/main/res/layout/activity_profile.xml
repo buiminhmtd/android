@@ -158,15 +158,17 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout android:id="@+id/heading"
-                    android:layout_marginTop="44dp"
-                    android:layout_marginStart="0dp"
+                <RelativeLayout
+                    android:id="@+id/heading"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
                     android:background="@color/bg_color">
                     >
 
-                    <TextView android:id="@+id/title"
+                    <TextView
+                        android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="20dp"
@@ -175,36 +177,37 @@
                         android:textColor="@color/_bg__create_recipe_ek2_color"
                         android:textSize="35sp"
                         android:textStyle="bold" />
-                        />
+                    />
 
 
-                    <RelativeLayout android:id="@+id/icon_more"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginStart="331dp"
+                    <RelativeLayout
+                        android:id="@+id/icon_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        >
+                        android:layout_marginStart="331dp"
+                        android:layout_marginTop="22dp">
 
-                        <View   android:id="@+id/rectangle_1"
-                            android:background="@drawable/rectangle_1_shape"
-                            android:alpha="0"
+                        <View
+                            android:id="@+id/rectangle_1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="-24dp"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp" />
+                            android:alpha="0"
+                            android:background="@drawable/rectangle_1_shape" />
 
-                        <ImageView android:id="@+id/union"
-                            android:src="@drawable/union"
-                            android:contentDescription="union"
+                        <ImageView
+                            android:id="@+id/union"
+                            android:layout_width="18dp"
+                            android:layout_height="4dp"
                             android:layout_marginStart="3dp"
                             android:layout_marginTop="10dp"
-                            android:layout_width="18dp"
-                            android:layout_height="4dp" />
+                            android:contentDescription="union"
+                            android:src="@drawable/union" />
 
                     </RelativeLayout>
 
                 </RelativeLayout>
-
 
                 <RelativeLayout android:id="@+id/info"
                     android:layout_marginTop="350dp"
@@ -433,89 +436,6 @@
 
                 </RelativeLayout>
 
-
-                <RelativeLayout android:id="@+id/status_bar"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-
-                    <RelativeLayout android:id="@+id/symbols"
-                        android:layout_marginTop="16.6dp"
-                        android:layout_marginStart="293.5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        >
-
-
-                        <RelativeLayout android:id="@+id/battery"
-                            android:layout_marginTop="0.56dp"
-                            android:layout_marginStart="42.5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            >
-
-                            <ImageView android:id="@+id/rectangle"
-                                android:src="@drawable/rectangle"
-                                android:contentDescription="rectangle"
-                                android:alpha="0.40000000596046"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="0dp"
-                                android:layout_width="24.5dp"
-                                android:layout_height="11.5dp" />
-
-                            <View   android:id="@+id/rectangle_ek1"
-                                android:background="@drawable/rectangle_ek1_shape"
-                                android:layout_marginStart="2dp"
-                                android:layout_marginTop="2dp"
-                                android:layout_width="18dp"
-                                android:layout_height="7.67dp" />
-
-                        </RelativeLayout>
-
-                        <ImageView android:id="@+id/combined_shape"
-                            android:src="@drawable/combined_shape"
-                            android:contentDescription="combined_shape"
-                            android:layout_marginTop="1dp"
-                            android:layout_width="17.1dp"
-                            android:layout_height="10.7dp" />
-
-                        <ImageView android:id="@+id/wi_fi"
-                            android:src="@drawable/wi_fi"
-                            android:contentDescription="wi_fi"
-                            android:layout_marginStart="22.1dp"
-                            android:layout_marginTop="0.8dp"
-                            android:layout_width="15.4dp"
-                            android:layout_height="11.06dp" />
-
-                    </RelativeLayout>
-
-
-                    <RelativeLayout android:id="@+id/bars_status___time"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginStart="0dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        >
-
-                        <TextView android:id="@+id/___time"
-                            android:fontFamily="SF Pro Text"
-                            android:textStyle="bold"
-                            android:textSize="14sp"
-                            android:textColor="@color/black"
-                            android:layout_marginLeft="360dp"
-                            android:layout_marginTop="2dp"
-                            android:layout_width="60.5dp"
-                            android:layout_height="28.5dp"
-                            android:text="@string/___time_string"
-                            />
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
 
             </RelativeLayout>
         </RelativeLayout>
