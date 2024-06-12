@@ -76,22 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(profileEditingIntent);
             }
         });
-
-        // Set click listener for the feeds relative layout
-        feedsRelativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start MealActivity
-                // You need to provide the meal ID to the MealActivity
-                int mealID = (int) mealList.get(v.getVerticalScrollbarPosition()).get("mealID");
-
-                // Open the MealActivity with the selected meal ID
-                Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
-                mealIntent.putExtra("mealID", mealID);
-                startActivity(mealIntent);
-            }
-        });
-
+        
         // Set click listener for the bg image view
         bgImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,18 +197,34 @@ public class ProfileActivity extends AppCompatActivity {
 
         int feedIndex = 1;
         int mealImageColumnIndex = cursor.getColumnIndex("mealImage");
+        int mealIDColumnIndex = cursor.getColumnIndex("mealID");
         while (cursor.moveToNext()) {
-            if (mealImageColumnIndex != -1) {
+            // Check if mealImageColumnIndex and mealIDColumnIndex are valid
+            if (mealImageColumnIndex != -1 && mealIDColumnIndex != -1) {
                 byte[] imageData = cursor.getBlob(mealImageColumnIndex);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
                 ImageView feedImageView = findViewById(getResources().getIdentifier("feed_" + feedIndex, "id", getPackageName()));
                 feedImageView.setImageBitmap(bitmap);
+
+                // Set OnClickListener for each feed ImageView
+                final int mealID = cursor.getInt(mealIDColumnIndex);
+                feedImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Open MealActivity with the selected mealID
+                        Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
+                        mealIntent.putExtra("mealID", mealID);
+                        startActivity(mealIntent);
+                    }
+                });
+
                 feedIndex++;
             }
         }
         cursor.close();
         db.close();
     }
+    
     private String getUsernameFromDatabase() {
         String username = "";
 
