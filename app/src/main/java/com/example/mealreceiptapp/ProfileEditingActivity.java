@@ -78,7 +78,7 @@ public class ProfileEditingActivity extends AppCompatActivity {
         // Get the user profile data from the database based on the user ID
         Map<String, Object> user = dbHelper.getUserByID(userID);
         if (user != null) {
-            String username = (String) user.get("username");
+            String username = (String) user.get("fullname");
             String mota = (String) user.get("selfDescription");
 
             // Set the username and mota in the EditText fields
