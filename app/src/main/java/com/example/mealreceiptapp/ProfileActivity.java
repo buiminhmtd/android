@@ -162,7 +162,7 @@ public class ProfileActivity extends AppCompatActivity {
         // Save the image data to the database
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("avatar", imageData);
+        values.put("profileImage", imageData);
         db.update("USERS", values, null, null);
         db.close();
     }
@@ -172,7 +172,7 @@ public class ProfileActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("USERS", new String[]{"profileImage"}, null, null, null, null, null);
         if (cursor.moveToFirst()) {
-            int avatarColumnIndex = cursor.getColumnIndex("avatar");
+            int avatarColumnIndex = cursor.getColumnIndex("profileImage");
             if (avatarColumnIndex != -1) {
                 byte[] imageData = cursor.getBlob(avatarColumnIndex);
                 if (imageData != null && imageData.length > 0) {
