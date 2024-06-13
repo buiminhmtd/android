@@ -146,7 +146,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public Map<String, Object> getUserByID(int userID) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {"fullname", "mota"};
+        String[] columns = {"fullname", "selfDescription"};
         String selection = "userID" + " = ?";
         String[] selectionArgs = {String.valueOf(userID)};
         Cursor cursor = db.query("USERS", columns, selection, selectionArgs, null, null, null);
@@ -155,14 +155,14 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             user = new HashMap<>();
             int usernameIndex = cursor.getColumnIndex("fullname");
-            int motaIndex = cursor.getColumnIndex("mota");
+            int selfDescriptionIndex = cursor.getColumnIndex("selfDescription");
 
-            if (usernameIndex != -1 && motaIndex != -1) {
+            if (usernameIndex != -1 && selfDescriptionIndex != -1) {
                 String username = cursor.getString(usernameIndex);
-                String mota = cursor.getString(motaIndex);
+                String selfDescription = cursor.getString(selfDescriptionIndex);
 
                 user.put("username", username);
-                user.put("mota", mota);
+                user.put("selfDescription", selfDescription);
             }
 
             cursor.close();

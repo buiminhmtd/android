@@ -79,7 +79,7 @@ public class ProfileEditingActivity extends AppCompatActivity {
         Map<String, Object> user = dbHelper.getUserByID(userID);
         if (user != null) {
             String username = (String) user.get("username");
-            String mota = (String) user.get("mota");
+            String mota = (String) user.get("selfDescription");
 
             // Set the username and mota in the EditText fields
             usernameEditText.setText(username);

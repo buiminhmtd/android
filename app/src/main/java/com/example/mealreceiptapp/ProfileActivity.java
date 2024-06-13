@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -169,7 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void loadAvatar() {
         // Load and display the user's avatar from the database
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query("USERS", new String[]{"avatar"}, null, null, null, null, null);
+        Cursor cursor = db.query("USERS", new String[]{"profileImage"}, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             int avatarColumnIndex = cursor.getColumnIndex("avatar");
             if (avatarColumnIndex != -1) {
@@ -204,27 +205,34 @@ public class ProfileActivity extends AppCompatActivity {
                 byte[] imageData = cursor.getBlob(mealImageColumnIndex);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
                 ImageView feedImageView = findViewById(getResources().getIdentifier("feed_" + feedIndex, "id", getPackageName()));
-                feedImageView.setImageBitmap(bitmap);
 
-                // Set OnClickListener for each feed ImageView
-                final int mealID = cursor.getInt(mealIDColumnIndex);
-                feedImageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Open MealActivity with the selected mealID
-                        Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
-                        mealIntent.putExtra("mealID", mealID);
-                        startActivity(mealIntent);
-                    }
-                });
+                if (feedImageView != null) {
+                    feedImageView.setImageBitmap(bitmap);
 
-                feedIndex++;
+                    // Set OnClickListener for each feed ImageView
+                    final int mealID = cursor.getInt(mealIDColumnIndex);
+                    feedImageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Open MealActivity with the selected mealID
+                            Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
+                            mealIntent.putExtra("mealID", mealID);
+                            startActivity(mealIntent);
+                        }
+                    });
+
+                    feedIndex++;
+                } else {
+                    // Log an error if the ImageView is not found
+                    Log.e("ProfileActivity", "ImageView not found for feed_" + feedIndex);
+                }
             }
         }
         cursor.close();
         db.close();
     }
-    
+
+
     private String getUsernameFromDatabase() {
         String username = "";
 
