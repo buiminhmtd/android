@@ -15,7 +15,8 @@ public class HomeActivity extends AppCompatActivity implements MealAdapter.OnIte
     private RecyclerView mealRecyclerView;
     private MealAdapter mealAdapter;
     private List<Map<String, Object>> mealList;
-    private ImageButton savedMealsButton; // Add reference to the saved meals button
+    private ImageButton savedMealsButton;
+    private ImageButton addMealButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,30 +30,33 @@ public class HomeActivity extends AppCompatActivity implements MealAdapter.OnIte
         mealList = dbHelper.getAllMeals();
 
         mealAdapter = new MealAdapter(this, mealList);
-        mealAdapter.setOnItemClickListener(this); // Set item click listener
+        mealAdapter.setOnItemClickListener(this);
         mealRecyclerView.setAdapter(mealAdapter);
 
-        // Find the saved meals button by ID
         savedMealsButton = findViewById(R.id.savedMeals);
+        addMealButton = findViewById(R.id.addMeal);
 
-        // Set OnClickListener for the saved meals button
         savedMealsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Open SavedMealsActivity when the button is clicked
                 Intent intent = new Intent(HomeActivity.this, SavedMealsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addMealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, CreateMealActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    // Implement the onItemClick method from MealAdapter.OnItemClickListener interface
+    //Lấy thông tin chi tiết món ăn theo id
     @Override
     public void onItemClick(int position) {
-        // Get the meal ID of the clicked item
         int mealID = (int) mealList.get(position).get("mealID");
-
-        // Open the MealActivity with the selected meal ID
         Intent intent = new Intent(this, MealActivity.class);
         intent.putExtra("mealID", mealID);
         startActivity(intent);

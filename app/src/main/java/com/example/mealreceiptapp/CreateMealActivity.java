@@ -28,10 +28,10 @@ public class CreateMealActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int PERMISSION_REQUEST_CODE = 2;
+
     private ImageView foodThumbnail;
     private Button buttonComplete;
     private ImageButton themAnh;
-    private RelativeLayout ingredientsContainer;
     private LinearLayout dynamicIngredientsContainer;
     private EditText tenCongThuc;
     private EditText moTa;
@@ -53,7 +53,6 @@ public class CreateMealActivity extends AppCompatActivity {
         foodThumbnail = findViewById(R.id.food_thumbnail);
         buttonComplete = findViewById(R.id.buttonComplete);
         themAnh = findViewById(R.id.themAnh);
-        ingredientsContainer = findViewById(R.id.ingredients);
         dynamicIngredientsContainer = findViewById(R.id.dynamic_ingredients_container);
         tenCongThuc = findViewById(R.id.tenCongThuc);
         moTa = findViewById(R.id.moTa);
