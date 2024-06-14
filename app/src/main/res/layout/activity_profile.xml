@@ -90,29 +90,6 @@
                     >
 
 
-                    <RelativeLayout android:id="@+id/field"
-                        android:layout_marginTop="51dp"
-                        android:layout_marginStart="250dp"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/bg_color"
-                        >
-
-                        <TextView android:id="@+id/label"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="Chỉnh sửa"
-                            android:textColor="@color/_bg__create_recipe_ek2_color"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                            />
-
-                    </RelativeLayout>
-
-
                     <RelativeLayout android:id="@+id/profile"
                         android:layout_marginTop="24dp"
                         android:layout_marginStart="6dp"
@@ -146,12 +123,38 @@
                             />
 
                         <ImageView android:id="@+id/avatar"
-                            android:src="@drawable/avatar"
+                            android:src="@drawable/line_shape"
                             android:contentDescription="avatar"
                             android:layout_marginStart="26dp"
                             android:layout_marginTop="0dp"
                             android:layout_width="100dp"
-                            android:layout_height="99dp" />
+                            android:layout_height="99dp"
+                            android:radius = "36dp"/>
+
+
+                        <RelativeLayout
+                            android:id="@+id/field"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="250dp"
+                            android:layout_marginTop="51dp"
+                            android:background="@drawable/bg_ek4_shape"
+                            >
+
+                            <TextView
+                                android:id="@+id/label"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Chỉnh sửa"
+                                android:textColor="@color/_bg__create_recipe_ek2_color"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                            />
+
+                        </RelativeLayout>
 
                     </RelativeLayout>
 
@@ -240,7 +243,7 @@
                         <TextView android:id="@+id/_4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
+                            android:layout_marginLeft="20dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
                             android:text="Số lượng: 4"
@@ -261,14 +264,16 @@
                     android:layout_height="wrap_content"
                     >
 
-                    <ImageView android:id="@+id/bg"
-                        android:src="@drawable/bg"
-                        android:contentDescription="bg"
+
+                    <ImageView
+                        android:id="@+id/bg"
+                        android:layout_width="375dp"
+                        android:layout_height="72dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="32dp"
-                        android:layout_width="375dp"
-                        android:layout_height="72dp" />
-
+                        android:contentDescription="bg"
+                        android:src="@drawable/bg"
+                        />
 
                     <RelativeLayout android:id="@+id/icon_profile"
                         android:layout_marginTop="56dp"
