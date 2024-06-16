@@ -1,31 +1,33 @@
 package com.example.mealreceiptapp;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.net.Uri;
-import java.io.IOException;
-import android.content.ContentValues;
+import java.io.ByteArrayOutputStream;
+import android.os.Environment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.ByteArrayOutputStream;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int REQUEST_IMAGE_PICK = 2;
+    private static final int REQUEST_IMAGE_PICK = 1;
 
     private DBHelper dbHelper;
     private ImageView avatarImageView;
@@ -36,7 +38,6 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView bioTextView;
     private SQLiteDatabase db;
 
-    private List<Map<String, Object>> mealList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +48,13 @@ public class ProfileActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         avatarImageView = findViewById(R.id.avatar);
         fieldRelativeLayout = findViewById(R.id.field);
-        feedsRelativeLayout = findViewById(R.id.feeds);
         bgImageView = findViewById(R.id.bg_ek1);
-        db = dbHelper.getReadableDatabase();
-        
-        
-        String username = getUsernameFromDatabase();
-        String selfDescription = getSelfDescriptionFromDatabase();
+        db = dbHelper.getWritableDatabase(); // Open database for writing
+
+        int userID = getCurrentUserID();
+
+        String username = getUsernameFromDatabase(userID);
+        String selfDescription = getSelfDescriptionFromDatabase(userID);
 
         usernameTextView.setText(username);
         bioTextView.setText(selfDescription);
@@ -77,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(profileEditingIntent);
             }
         });
-        
+
         // Set click listener for the bg image view
         bgImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,10 +122,10 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        // Load and display the user's avatar
-        loadAvatar();
         // Load and display the user's feeds
         loadFeeds();
+        // Load and display the user's avatar
+        //loadAvatar(userID);
     }
 
     @Override
@@ -140,7 +141,7 @@ public class ProfileActivity extends AppCompatActivity {
                 // Save the image data to the database
                 saveAvatar(imageData);
                 // Load and display the updated avatar
-                loadAvatar();
+                loadAvatar(getCurrentUserID());
             }
         }
     }
@@ -159,34 +160,39 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void saveAvatar(byte[] imageData) {
-        // Save the image data to the database
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        // Save the image data to a file
+        String imagePath = saveImageToFile(imageData);
+
+        // Save the image path to the database
         ContentValues values = new ContentValues();
-        values.put("profileImage", imageData);
-        db.update("USERS", values, null, null);
-        db.close();
+        values.put("profileImagePath", imagePath);
+        db.update("USERS", values, "userID = ?", new String[]{String.valueOf(getCurrentUserID())});
     }
 
-    private void loadAvatar() {
-        // Load and display the user's avatar from the database
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query("USERS", new String[]{"profileImage"}, null, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            int avatarColumnIndex = cursor.getColumnIndex("profileImage");
-            if (avatarColumnIndex != -1) {
-                byte[] imageData = cursor.getBlob(avatarColumnIndex);
-                if (imageData != null && imageData.length > 0) {
-                    // User has an avatar image, decode and display it
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
-                    avatarImageView.setImageBitmap(bitmap);
-                } else {
-                    // User does not have an avatar image, set the default image
-                    avatarImageView.setImageResource(R.drawable.avatar_ek1);
+    private String saveImageToFile(byte[] imageData) {
+        String imagePath = ""; // Initialize with empty string
+
+        FileOutputStream fos = null;
+        try {
+            File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            File imageFile = File.createTempFile("avatar", ".jpg", storageDir);
+            fos = new FileOutputStream(imageFile);
+            fos.write(imageData);
+            fos.flush();
+            imagePath = imageFile.getAbsolutePath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.close();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        cursor.close();
-        db.close();
+
+        return imagePath;
     }
 
     private void loadFeeds() {
@@ -196,77 +202,192 @@ public class ProfileActivity extends AppCompatActivity {
         TextView feedCountTextView = findViewById(R.id._4);
         feedCountTextView.setText("Số lượng: " + feedCount);
 
-        int feedIndex = 1;
-        int mealImageColumnIndex = cursor.getColumnIndex("mealImage");
+        // Clear previous feed views
+        LinearLayout feedContainer = findViewById(R.id.feed_container);
+        feedContainer.removeAllViews();
+
+        // Indices of columns in the cursor
         int mealIDColumnIndex = cursor.getColumnIndex("mealID");
+        int mealImageColumnIndex = cursor.getColumnIndex("mealImage");
+
+        int marginBetweenImages = dpToPx(10); // Adjust spacing between images
+
         while (cursor.moveToNext()) {
-            // Check if mealImageColumnIndex and mealIDColumnIndex are valid
-            if (mealImageColumnIndex != -1 && mealIDColumnIndex != -1) {
+            int mealID = cursor.getInt(mealIDColumnIndex);
+
+            // Check if mealImageColumnIndex is valid
+            if (mealImageColumnIndex != -1) {
                 byte[] imageData = cursor.getBlob(mealImageColumnIndex);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
-                ImageView feedImageView = findViewById(getResources().getIdentifier("feed_" + feedIndex, "id", getPackageName()));
 
-                if (feedImageView != null) {
+                // Create new ImageView for each meal image
+                ImageView feedImageView = new ImageView(this);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        dpToPx(160), // Width of each image view (adjust as needed)
+                        dpToPx(172) // Height of each image view (adjust as needed)
+                );
+
+                // Set margins between images
+                params.setMargins(marginBetweenImages, 0, 0, 0);
+
+                feedImageView.setLayoutParams(params);
+                feedImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                // Load and set meal image if imageData is not null
+                if (imageData != null && imageData.length > 0) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
                     feedImageView.setImageBitmap(bitmap);
-
-                    // Set OnClickListener for each feed ImageView
-                    final int mealID = cursor.getInt(mealIDColumnIndex);
-                    feedImageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // Open MealActivity with the selected mealID
-                            Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
-                            mealIntent.putExtra("mealID", mealID);
-                            startActivity(mealIntent);
-                        }
-                    });
-
-                    feedIndex++;
                 } else {
-                    // Log an error if the ImageView is not found
-                    Log.e("ProfileActivity", "ImageView not found for feed_" + feedIndex);
+                    // Handle case where imageData is null or empty
+                    feedImageView.setImageResource(R.drawable._bg__discover_ek2_shape);
                 }
+
+                // Set OnClickListener for each feed ImageView
+                final int finalMealID = mealID;
+                feedImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Open MealActivity with the selected mealID
+                        Intent mealIntent = new Intent(ProfileActivity.this, MealActivity.class);
+                        mealIntent.putExtra("mealID", finalMealID);
+                        startActivity(mealIntent);
+                    }
+                });
+
+                // Add the ImageView to the feedContainer
+                feedContainer.addView(feedImageView);
+            } else {
+                // Log an error or handle the case where mealImageColumnIndex is -1
+                Log.e("loadFeeds", "mealImageColumnIndex is -1");
             }
         }
+
         cursor.close();
         db.close();
     }
 
+    // Utility method to convert dp to pixels
+    private int dpToPx(int dp) {
+        float density = getResources().getDisplayMetrics().density;
+        return Math.round(dp * density);
+    }
 
-    private String getUsernameFromDatabase() {
-        String username = "";
 
-        Cursor cursor = db.query("USERS", new String[]{"fullname"}, null, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            int usernameColumnIndex = cursor.getColumnIndex("fullname");
-            if (usernameColumnIndex != -1) {
-                username = cursor.getString(usernameColumnIndex);
+
+    private void loadAvatar(int userID) {
+        new AsyncTask<Integer, Void, Bitmap>() {
+            @Override
+            protected Bitmap doInBackground(Integer... params) {
+                int userID = params[0];
+                SQLiteDatabase db = dbHelper.getReadableDatabase();
+                Bitmap bitmap = null;
+
+                Cursor cursor = db.query("USERS", new String[]{"profileImage"}, "userID = ?",
+                        new String[]{String.valueOf(userID)}, null, null, null);
+
+                if (cursor.moveToFirst()) {
+                    int avatarColumnIndex = cursor.getColumnIndex("profileImage");
+                    if (avatarColumnIndex != -1) {
+                        String imagePath = cursor.getString(avatarColumnIndex);
+                        if (imagePath != null && !imagePath.isEmpty()) {
+                            // Load bitmap from file
+                            bitmap = BitmapFactory.decodeFile(imagePath);
+                        }
+                    }
+                }
+
+                cursor.close();
+                db.close();
+                return bitmap;
             }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                if (bitmap != null) {
+                    avatarImageView.setImageBitmap(bitmap);
+                } else {
+                    // Set default image if bitmap is null
+                    avatarImageView.setImageResource(R.drawable.avatar);
+                }
+            }
+        }.execute(userID);
+    }
+
+    private String getUsernameFromDatabase(int userID) {
+        String username = "";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query("USERS", new String[]{"fullname"}, "userID = ?",
+                new String[]{String.valueOf(userID)}, null, null, null);
+
+        // Kiểm tra cursor có dữ liệu không
+        if (cursor != null && cursor.moveToFirst()) {
+            // Lấy index của cột fullname
+            int usernameColumnIndex = cursor.getColumnIndex("fullname");
+
+            // Kiểm tra xem tên cột có tồn tại không
+            if (usernameColumnIndex != -1) {
+                // Lấy giá trị từ cột fullname
+                username = cursor.getString(usernameColumnIndex);
+            } else {
+                // Xử lý trường hợp tên cột không tồn tại
+                Log.e("ProfileActivity", "Column 'fullname' does not exist in the table USERS");
+            }
+        } else {
+            // Xử lý trường hợp không có dữ liệu từ cursor
+            Log.e("ProfileActivity", "No data found for userID: " + userID);
         }
-        cursor.close();
+
+        // Đóng cursor
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        // Đóng database
+        db.close();
 
         return username;
     }
 
-    private String getSelfDescriptionFromDatabase() {
+    private String getSelfDescriptionFromDatabase(int userID) {
         String selfDescription = "";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        Cursor cursor = db.query("USERS", new String[]{"selfDescription"}, null, null, null, null, null);
+        Cursor cursor = db.query("USERS", new String[]{"selfDescription"}, "userID = ?",
+                new String[]{String.valueOf(userID)}, null, null, null);
+
         if (cursor.moveToFirst()) {
             int selfDescriptionColumnIndex = cursor.getColumnIndex("selfDescription");
             if (selfDescriptionColumnIndex != -1) {
                 selfDescription = cursor.getString(selfDescriptionColumnIndex);
             }
         }
-        cursor.close();
 
+        cursor.close();
         return selfDescription;
+    }
+
+    private int getCurrentUserID() {
+        int userID = -1; // Default value, or any value that indicates no user ID is found
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query("USERS", new String[]{"userID"}, null,
+                null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            int userIDColumnIndex = cursor.getColumnIndex("userID");
+            if (userIDColumnIndex != -1) {
+                userID = cursor.getInt(userIDColumnIndex);
+            }
+        }
+
+        cursor.close();
+        return userID;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Đóng cơ sở dữ liệu khi không cần thiết nữa
-        db.close();
+        // Close the database when no longer needed
+        dbHelper.close();
     }
 }
