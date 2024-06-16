@@ -132,8 +132,120 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/bg_color"
+                android:backgroundTint="@color/bg_color"
                 android:text="Hoàn tất" />
+            <!--Thanh menu-->
+            <RelativeLayout
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="580dp">
+
+                <!--Menu home-->
+                <RelativeLayout
+                    android:id="@+id/icon_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek5"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek5_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek5"
+                        android:layout_width="20.67dp"
+                        android:layout_height="21.5dp"
+                        android:layout_marginStart="1.65dp"
+                        android:layout_marginTop="1.25dp"
+                        android:src="@drawable/union_ek5" />
+                </RelativeLayout>
+
+                <!--Menu công thức đã lưu-->
+                <RelativeLayout
+                    android:id="@+id/icon_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek3_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek3"
+                        android:layout_width="16.44dp"
+                        android:layout_height="20.5dp"
+                        android:layout_marginStart="3.75dp"
+                        android:layout_marginTop="1.75dp"
+                        android:src="@drawable/union_ek3" />
+                </RelativeLayout>
+
+
+                <!--Menu notification-->
+                <RelativeLayout
+                    android:id="@+id/icon_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek2_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek2"
+                        android:layout_width="16.26dp"
+                        android:layout_height="20.59dp"
+                        android:layout_marginStart="3.86dp"
+                        android:layout_marginTop="1.76dp"
+                        android:src="@drawable/union_ek2" />
+                </RelativeLayout>
+
+                <!--Menu profile-->
+                <RelativeLayout
+                    android:id="@+id/icon_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="330dp"
+                    android:layout_marginTop="10dp">
+
+                    <View
+                        android:id="@+id/rectangle_1_ek1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0"
+                        android:background="@drawable/rectangle_1_ek1_shape" />
+
+                    <ImageButton
+                        android:id="@+id/union_ek1"
+                        android:layout_width="15.19dp"
+                        android:layout_height="20.76dp"
+                        android:layout_marginStart="4.25dp"
+                        android:layout_marginTop="1.65dp"
+                        android:src="@drawable/union_ek1" />
+                </RelativeLayout>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

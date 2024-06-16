@@ -54,7 +54,7 @@
             android:paddingRight="32dp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:background="@color/xanh"
+            android:backgroundTint="@color/xanh"
             android:layout_below="@id/caption"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"

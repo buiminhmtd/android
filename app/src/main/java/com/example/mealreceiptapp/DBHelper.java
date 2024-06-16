@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MealDB.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -130,24 +131,32 @@ public class DBHelper extends SQLiteOpenHelper {
         return mealID;
     }
 
-    // Method to add a user
-    public boolean addUser(String username, String password) {
+    public long addUser(String username, String password, String fullName, byte[] profileImage, String selfDescription) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("username", username);
-        values.put("password", password);
+        long result = -1;
 
-        long result = db.insert("USERS", null, values);
-        db.close();
+        try {
+            ContentValues values = new ContentValues();
+            values.put("username", username);
+            values.put("password", password);
+            values.put("fullname", fullName);
+            values.put("profileImage", profileImage);
+            values.put("selfDescription", selfDescription);
 
-        return result != -1;
+            result = db.insertWithOnConflict("USERS", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+        } catch (Exception e) {
+            Log.e("DBHelper", "Error adding user to database", e);
+        } finally {
+            db.close();
+        }
+
+        return result;
     }
 
-    // Method to check user credentials
     public boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = { "username" };
-        String selection = "username" + " = ? AND " + "password" + " = ?";
+        String[] columns = { "userID" };
+        String selection = "username = ? AND password = ?";
         String[] selectionArgs = { username, password };
 
         Cursor cursor = db.query("USERS", columns, selection, selectionArgs, null, null, null);
@@ -157,6 +166,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return count > 0;
     }
+
+
     public Map<String, Object> getUserByID(int userID) {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns = {"fullname", "selfDescription"};
@@ -216,4 +227,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return rowsAffected > 0;
     }
+    public SQLiteDatabase getReadableDatabase() {
+        return super.getReadableDatabase();
+    }
+
+    public SQLiteDatabase getWritableDatabase() {
+        return super.getWritableDatabase();
+    }
+
 }
