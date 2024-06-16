@@ -38,41 +38,32 @@ public class MealActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal);
 
-        // Get meal ID from intent
         mealID = getIntent().getIntExtra("mealID", -1);
-
         if (mealID == -1) {
-            // Handle error, mealID was not passed correctly
             finish();
             return;
         }
 
-        // Initialize DBHelper
         dbHelper = new DBHelper(this);
 
-        // Find views
         mealImageView = findViewById(R.id.mealImage);
         mealNameTextView = findViewById(R.id.title_ek1);
         reviewCountTextView = findViewById(R.id.reviewCount);
 
-        // Populate meal details
         populateMealDetails();
 
-        // Find the button
+        //Xem các bước làm
         Button viewRecipeButton = findViewById(R.id.xemCongThuc);
-
-        // Set OnClickListener for the button
         viewRecipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to MealDetailActivity
                 Intent intent = new Intent(MealActivity.this, Meal2Activity.class);
-                intent.putExtra("mealID", mealID); // Pass the mealID to MealDetailActivity
+                intent.putExtra("mealID", mealID);
                 startActivity(intent);
             }
         });
 
-        // Find the save button
+        //Lưu công thức
         ImageButton saveButton = findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,16 +81,13 @@ public class MealActivity extends AppCompatActivity {
     private void populateMealDetails() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Query meal details
         String[] projection = {"mealName", "mealImage"};
         String selection = "mealID=?";
         String[] selectionArgs = {String.valueOf(mealID)};
         Cursor cursor = db.query("MEALS", projection, selection, selectionArgs, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            // Populate meal name
             String mealName = cursor.getString(cursor.getColumnIndexOrThrow("mealName"));
-            Log.d("MealActivity", "Meal Name: " + mealName);
             mealNameTextView.setText(mealName);
 
             // Populate meal image
@@ -116,14 +104,11 @@ public class MealActivity extends AppCompatActivity {
             Log.d("MealActivity", "No meal found with ID: " + mealID);
         }
 
-        // Get number of reviews for this meal
         int reviewCount = getReviewCountForMeal(mealID);
         reviewCountTextView.setText(String.valueOf(reviewCount));
 
-        // Display ingredients for this meal
         displayIngredients(mealID);
 
-        // Close database connection
         db.close();
     }
 
@@ -139,6 +124,7 @@ public class MealActivity extends AppCompatActivity {
         return count;
     }
 
+    //Lấy danh sách các nguyên liệu
     private List<Map<String, Object>> getIngredientsForMeal(long mealID) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String query = "SELECT i.ingredientName, i.ingredientImage FROM INGREDIENTS i " +
@@ -158,6 +144,7 @@ public class MealActivity extends AppCompatActivity {
         return ingredients;
     }
 
+    //Hiển thị danh sách nguyên liệu
     private void displayIngredients(long mealID) {
         List<Map<String, Object>> ingredients = getIngredientsForMeal(mealID);
         RecyclerView recyclerView = findViewById(R.id.ingredients_recycler_view);

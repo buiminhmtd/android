@@ -38,7 +38,7 @@
             </RelativeLayout>
 
             <!--Tìm kiếm món ăn-->
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/search_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:layout_marginLeft="20dp">
 
                     <ImageButton
-                        android:id="@+id/union_ek7"
+                        android:id="@+id/searchButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -59,7 +59,7 @@
                         android:src="@drawable/union_ek7" />
 
                     <EditText
-                        android:id="@+id/label_ek1"
+                        android:id="@+id/searchBar"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -69,7 +69,7 @@
                 </LinearLayout>
 
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <!--Phổ biến-->
             <RelativeLayout
@@ -107,7 +107,7 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
                     <ImageView
-                        android:id="@+id/seeAllButton1"
+                        android:id="@+id/seeAllButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3.33dp"
@@ -134,7 +134,7 @@
 
             </RelativeLayout>
 
-            <!--Xem gần đây-->
+            <!--Yêu thích-->
             <RelativeLayout
                 android:id="@+id/recent"
                 android:layout_width="match_parent"
@@ -147,37 +147,10 @@
                     android:layout_height="42dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="12dp"
-                    android:text="@string/recent_recipe___title_string"
+                    android:text="Yêu thích"
                     android:textColor="@color/food_title_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/seeAll2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="256dp"
-                    android:layout_marginTop="16dp">
-
-                    <TextView
-                        android:id="@+id/seeAllText2"
-                        android:layout_width="94dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="0dp"
-                        android:text="@string/see_all___label_ek1_string"
-                        android:textColor="@color/see_all___label_color"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/seeAllButton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="3.33dp"
-                        android:layout_marginTop="4.17dp"
-                        android:src="@drawable/union_ek6" />
-                </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/cards"
@@ -185,7 +158,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="56dp">
-
 
                     <RelativeLayout
                         android:id="@+id/card_1"
@@ -202,7 +174,6 @@
                             android:layout_marginTop="0dp"
                             android:contentDescription="food_photo"
                             android:src="@drawable/food_photo" />
-
 
                         <RelativeLayout
                             android:id="@+id/info"
@@ -221,15 +192,6 @@
                                 android:textColor="@color/food_title_color"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/creator"
-                                android:layout_width="108dp"
-                                android:layout_height="22dp"
-                                android:layout_marginLeft="0dp"
-                                android:layout_marginTop="44dp"
-                                android:text="@string/creator_string"
-                                android:textColor="@color/creator_color" />
 
                         </RelativeLayout>
 
@@ -252,7 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="25dp">
 
                     <View
                         android:id="@+id/rectangle_1_ek5"
@@ -264,7 +226,7 @@
                         android:background="@drawable/rectangle_1_ek5_shape" />
 
                     <ImageButton
-                        android:id="@+id/union_ek5"
+                        android:id="@+id/menuHome"
                         android:layout_width="20.67dp"
                         android:layout_height="21.5dp"
                         android:layout_marginStart="1.65dp"
@@ -278,8 +240,8 @@
                     android:id="@+id/icon_bookmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginLeft="115dp"
+                    android:layout_marginTop="25dp">
 
                     <View
                         android:id="@+id/rectangle_1_ek3"
@@ -291,7 +253,7 @@
                         android:background="@drawable/rectangle_1_ek3_shape" />
 
                     <ImageButton
-                        android:id="@+id/savedMeals"
+                        android:id="@+id/menuSavedMeals"
                         android:layout_width="16.44dp"
                         android:layout_height="20.5dp"
                         android:layout_marginStart="3.75dp"
@@ -306,8 +268,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="175dp"
-                    android:layout_marginTop="-30dp">
+                    android:layout_marginLeft="172dp"
+                    android:layout_marginBottom="20dp">
 
                     <ImageView
                         android:id="@+id/bg_ek1"
@@ -342,7 +304,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="260dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="25dp">
 
                     <View
                         android:id="@+id/rectangle_1_ek2"
@@ -354,7 +316,7 @@
                         android:background="@drawable/rectangle_1_ek2_shape" />
 
                     <ImageButton
-                        android:id="@+id/union_ek2"
+                        android:id="@+id/menuNotification"
                         android:layout_width="16.26dp"
                         android:layout_height="20.59dp"
                         android:layout_marginStart="3.86dp"
@@ -369,7 +331,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="330dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="25dp">
 
                     <View
                         android:id="@+id/rectangle_1_ek1"
@@ -381,7 +343,7 @@
                         android:background="@drawable/rectangle_1_ek1_shape" />
 
                     <ImageButton
-                        android:id="@+id/union_ek1"
+                        android:id="@+id/menuProfile"
                         android:layout_width="15.19dp"
                         android:layout_height="20.76dp"
                         android:layout_marginStart="4.25dp"

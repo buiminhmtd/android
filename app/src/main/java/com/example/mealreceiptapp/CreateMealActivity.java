@@ -57,7 +57,6 @@ public class CreateMealActivity extends AppCompatActivity {
         tenCongThuc = findViewById(R.id.tenCongThuc);
         moTa = findViewById(R.id.moTa);
 
-        // Initialize with one row
         addIngredientRow();
     }
 

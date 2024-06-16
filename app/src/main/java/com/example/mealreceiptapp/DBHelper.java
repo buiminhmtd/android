@@ -117,6 +117,19 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public int getMealIDByName(String mealName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int mealID = -1;
+        String query = "SELECT mealID FROM MEALS WHERE mealName=?";
+        Cursor cursor = db.rawQuery(query, new String[]{mealName});
+        if (cursor != null && cursor.moveToFirst()) {
+            mealID = cursor.getInt(cursor.getColumnIndexOrThrow("mealID"));
+            cursor.close();
+        }
+        db.close();
+        return mealID;
+    }
+
     // Method to add a user
     public boolean addUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();

@@ -50,13 +50,12 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
             Bitmap bitmap = BitmapFactory.decodeByteArray(mealImage, 0, mealImage.length);
             holder.mealImage.setImageBitmap(bitmap);
         } else {
-            holder.mealImage.setImageResource(R.drawable.placeholder_image); // Use a placeholder image if no image is found
+            holder.mealImage.setImageResource(R.drawable.placeholder_image);
         }
 
-        // Set onClickListener to open MealActivity with the selected meal ID
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onItemClick(position); // Notify the listener when an item is clicked
+                listener.onItemClick(position);
             }
         });
     }
