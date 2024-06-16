@@ -1,10 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/main">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/login_page_1"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,154 +24,200 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/_bg__login_page_1_ek2_shape" />
 
-                <Button
-                    android:id="@+id/start_button"
-                    android:layout_width="240dp"
-                    android:layout_height="50dp"
-                    android:text="@string/dangkystring"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:paddingLeft="32dp"
-                    android:paddingRight="32dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="16dp"
-                    android:background="@color/xanh"
-                    android:layout_below="@id/checkbox_show_password"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="7dp" />
-
-                <RelativeLayout
-                    android:id="@+id/logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="114dp"
-                    android:layout_marginTop="77dp">
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/dangky"
-                    android:layout_width="120dp"
-                    android:layout_height="38dp"
-                    android:layout_gravity="center_horizontal|center"
-                    android:gravity="center"
-                    android:layout_marginLeft="125dp"
-                    android:layout_marginTop="240dp"
-                    android:text="Đăng ký"
-                    android:textColor="@color/_3_44_pm_color"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/textviewtaikhoan"
-                    android:layout_width="340dp"
-                    android:layout_height="46dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="340dp"
-                    android:background="@drawable/rectangle_38_shape"
-                    android:hint="Email" />
-
-                <EditText
-                    android:id="@+id/textviewmatkhau"
-                    android:layout_width="340dp"
-                    android:layout_height="46dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="440dp"
-                    android:background="@drawable/rectangle_39_shape"
-                    android:inputType="textPassword"
-                    android:hint="Mật khẩu" />
-
-                <EditText
-                    android:id="@+id/textviewmatkhau_confirm"
-                    android:layout_width="340dp"
-                    android:layout_height="46dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="540dp"
-                    android:background="@drawable/rectangle_39_shape"
-                    android:hint="Xác nhận mật khẩu"
-                    android:inputType="textPassword" />
-
-                <TextView
-                    android:id="@+id/xacnhanmatkhau"
-                    android:layout_width="130dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="500dp"
-                    android:text="Xác nhận mật khẩu*"
-                    android:textColor="@color/_3_44_pm_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/taikhoan"
-                    android:layout_width="64dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_horizontal|center"
-                    android:gravity="center"
-                    android:layout_marginLeft="13dp"
-                    android:layout_marginTop="300dp"
-                    android:text="Email*"
-                    android:textColor="@color/_3_44_pm_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/matkhau"
-                    android:layout_width="102dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="400dp"
-                    android:text="Mật khẩu*"
-                    android:textColor="@color/_3_44_pm_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/dacotaikhoan"
-                    android:layout_width="173dp"
-                    android:layout_height="23dp"
-                    android:layout_gravity="center_horizontal|center"
-                    android:gravity="center"
-                    android:layout_marginLeft="115dp"
-                    android:layout_marginTop="7dp"
-                    android:text="Đã có tài khoản? Đăng nhập"
-                    android:textColor="@color/_3_44_pm_color"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_below="@+id/start_button" />
-
-
-
-                <!-- Thêm CheckBox để hiển thị mật khẩu -->
-                <CheckBox
-                    android:id="@+id/checkbox_show_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="250dp"
-                    android:layout_marginTop="600dp"
-                    android:text="Hiển thị mật khẩu"
-                    android:textColor="@color/nh__th_ng_tin_color"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
                 <RelativeLayout
                     android:id="@+id/logo_ek1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="55dp">
 
                     <ImageView
                         android:id="@+id/logo_1_ek1"
                         android:layout_width="193dp"
                         android:layout_height="161dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="0dp"
                         android:contentDescription="logo_1_ek1"
                         android:src="@drawable/logo_1_ek1" />
-
                 </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/dangky"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/logo_ek1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="Đăng ký"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Tên đầy đủ -->
+                <TextView
+                    android:id="@+id/ten_day_du"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dangky"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Tên đầy đủ*"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/textview_ten_day_du"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_below="@id/ten_day_du"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/rectangle_38_shape"
+                    android:hint="Tên đầy đủ" />
+
+                <!-- Email -->
+                <TextView
+                    android:id="@+id/taikhoan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_ten_day_du"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Email*"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/textviewtaikhoan"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_below="@id/taikhoan"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/rectangle_38_shape"
+                    android:hint="Email" />
+
+                <!-- Mật khẩu -->
+                <TextView
+                    android:id="@+id/matkhau"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textviewtaikhoan"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Mật khẩu*"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/textviewmatkhau"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_below="@id/matkhau"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/rectangle_39_shape"
+                    android:inputType="textPassword"
+                    android:hint="Mật khẩu" />
+
+                <!-- Xác nhận mật khẩu -->
+                <TextView
+                    android:id="@+id/xacnhanmatkhau"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textviewmatkhau"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Xác nhận mật khẩu*"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/textviewmatkhau_confirm"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_below="@id/xacnhanmatkhau"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/rectangle_39_shape"
+                    android:inputType="textPassword"
+                    android:hint="Xác nhận mật khẩu" />
+
+                <!-- Mô tả -->
+                <TextView
+                    android:id="@+id/mota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/checkbox_show_password"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Mô tả"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/textview_mota"
+                    android:layout_width="340dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/mota"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/rectangle_38_shape"
+                    android:hint="Mô tả về bản thân"
+                    android:inputType="textMultiLine" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_show_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textviewmatkhau_confirm"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Hiển thị mật khẩu"
+                    android:textColor="@color/nh__th_ng_tin_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/profile_image_view"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/textview_mota"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/feed_1"
+                    android:scaleType="centerCrop" />
+
+
+                <Button
+                    android:id="@+id/start_button"
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/profile_image_view"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/dangkystring"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@color/xanh" />
+
+                <TextView
+                    android:id="@+id/dacotaikhoan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/start_button"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Đã có tài khoản? Đăng nhập"
+                    android:textColor="@color/_3_44_pm_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
             </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

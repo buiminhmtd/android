@@ -98,17 +98,6 @@
                     android:textStyle="bold" />
 
                 <CheckBox
-                    android:id="@+id/checkbox_nhothongtin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="550dp"
-                    android:text="Nhớ thông tin"
-                    android:textColor="@color/nh__th_ng_tin_color"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <CheckBox
                     android:id="@+id/checkbox_show_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,8 +120,8 @@
                     android:paddingRight="32dp"
                     android:paddingTop="16dp"
                     android:paddingBottom="16dp"
-                    android:background="@color/xanh"
-                    android:layout_below="@id/checkbox_nhothongtin"
+                    android:background="#2A9019"
+                    android:layout_below="@id/checkbox_show_password"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp" />
 
