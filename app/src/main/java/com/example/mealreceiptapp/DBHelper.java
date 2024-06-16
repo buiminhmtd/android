@@ -200,4 +200,20 @@ public class DBHelper extends SQLiteOpenHelper {
         int rowsAffected = db.update("USERS", values, "userID" + " = ?", new String[]{String.valueOf(userID)});
         return rowsAffected > 0;
     }
+    
+    public boolean updateUserProfile(long userID, String fullname, String selfDescription, byte[] profileImage) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("fullname", fullname);
+        values.put("selfDescription", selfDescription);
+        values.put("profileImage", profileImage);
+
+        // updating row
+        int rowsAffected = db.update("USERS", values, "userID" + " = ?",
+                new String[]{String.valueOf(userID)});
+
+        db.close();
+
+        return rowsAffected > 0;
+    }
 }
