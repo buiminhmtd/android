@@ -125,7 +125,7 @@ public class ProfileActivity extends AppCompatActivity {
         // Load and display the user's feeds
         loadFeeds();
         // Load and display the user's avatar
-        //loadAvatar(userID);
+        loadAvatar(userID);
     }
 
     @Override
@@ -274,43 +274,47 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     private void loadAvatar(int userID) {
-        new AsyncTask<Integer, Void, Bitmap>() {
-            @Override
-            protected Bitmap doInBackground(Integer... params) {
-                int userID = params[0];
-                SQLiteDatabase db = dbHelper.getReadableDatabase();
-                Bitmap bitmap = null;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] projection = {"profileImage"};
+        String selection = "userID=?";
+        String[] selectionArgs = {String.valueOf(userID)};
 
-                Cursor cursor = db.query("USERS", new String[]{"profileImage"}, "userID = ?",
-                        new String[]{String.valueOf(userID)}, null, null, null);
+        Cursor cursor = db.query("USERS", projection, selection, selectionArgs, null, null, null);
 
-                if (cursor.moveToFirst()) {
-                    int avatarColumnIndex = cursor.getColumnIndex("profileImage");
-                    if (avatarColumnIndex != -1) {
-                        String imagePath = cursor.getString(avatarColumnIndex);
-                        if (imagePath != null && !imagePath.isEmpty()) {
-                            // Load bitmap from file
-                            bitmap = BitmapFactory.decodeFile(imagePath);
-                        }
-                    }
-                }
+        // Find the ImageView for avatar
+        ImageView avatarImageView = findViewById(R.id.avatar);
 
-                cursor.close();
-                db.close();
-                return bitmap;
-            }
+        if (cursor != null && cursor.moveToFirst()) {
+            int profileImageColumnIndex = cursor.getColumnIndex("profileImage");
 
-            @Override
-            protected void onPostExecute(Bitmap bitmap) {
-                if (bitmap != null) {
+            if (profileImageColumnIndex != -1) {
+                byte[] profileImageBytes = cursor.getBlob(profileImageColumnIndex);
+
+                if (profileImageBytes != null && profileImageBytes.length > 0) {
+                    // Decode byte array into Bitmap
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(profileImageBytes, 0, profileImageBytes.length);
                     avatarImageView.setImageBitmap(bitmap);
                 } else {
-                    // Set default image if bitmap is null
-                    avatarImageView.setImageResource(R.drawable.avatar);
+                    // Set default avatar image if profileImage is null or empty
+                    avatarImageView.setImageResource(R.drawable.line_shape);
                 }
+            } else {
+                // Handle case where profileImage column does not exist
+                Log.e("loadAvatar", "profileImage column not found in USERS table");
+                avatarImageView.setImageResource(R.drawable.line_shape);
             }
-        }.execute(userID);
+        } else {
+            // Handle case where cursor is null or empty
+            Log.e("loadAvatar", "Cursor is null or empty");
+            avatarImageView.setImageResource(R.drawable.line_shape);
+        }
+
+        if (cursor != null) {
+            cursor.close(); // Close cursor after use
+        }
     }
+
+
 
     private String getUsernameFromDatabase(int userID) {
         String username = "";
