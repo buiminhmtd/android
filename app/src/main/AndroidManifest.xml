@@ -23,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".CreateMeal2Activity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ProfileEditingActivity"
             android:exported="true" />

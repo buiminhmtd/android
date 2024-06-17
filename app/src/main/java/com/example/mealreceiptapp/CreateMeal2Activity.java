@@ -63,6 +63,7 @@
             }
 
             completeButton.setOnClickListener(v -> {
+
                 StringBuilder stepsBuilder = new StringBuilder();
                 for (EditText stepEditText : stepEditTexts) {
                     String stepText = stepEditText.getText().toString();
@@ -98,7 +99,10 @@
                 } else {
                     Toast.makeText(CreateMeal2Activity.this, "Failed to add meal!", Toast.LENGTH_SHORT).show();
                 }
+                completeRecipe();
             });
+
+
 
             addStepRowButton.setOnClickListener(v -> addNewStepRow());
 
@@ -178,5 +182,19 @@
             editor.putString("notification_message", "Bạn vừa tạo 1 công thức mới");
             // Apply changes
             editor.apply();
+        }
+        private void completeRecipe() {
+            // Logic để hoàn tất công thức
+            String newRecipeTitle = "Công thức mới";
+            String newRecipeMessage = "Bạn đã thêm một công thức mới!";
+
+            // Thêm thông báo mới
+            NotificationUtils.addNotification(this, newRecipeTitle, newRecipeMessage);
+
+            // Điều hướng đến NotificationActivity để hiển thị thông báo
+            Intent notificationIntent = new Intent(CreateMeal2Activity.this, NotificationActivity.class);
+            startActivity(notificationIntent);
+
+            // Hoặc bạn có thể ở lại trong CreateMeal2Activity và cập nhật giao diện tại chỗ nếu cần thiết
         }
     }

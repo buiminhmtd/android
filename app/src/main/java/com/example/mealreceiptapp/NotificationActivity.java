@@ -18,6 +18,8 @@ public class NotificationActivity extends AppCompatActivity {
     private NotificationAdapter adapter;
     private ImageButton Home;
     private ImageButton Profile;
+    private ImageButton Create;
+    private ImageButton Bookmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +29,21 @@ public class NotificationActivity extends AppCompatActivity {
         // Initialize notifications list
         notifications = new ArrayList<>();
 
-        // Load notifications from SharedPreferences
-        loadNotifications();
-
-        // Initialize ListView and Adapter
+        // Initialize ListView
         notificationListView = findViewById(R.id.notification_listview);
+
+        // Initialize Adapter
         adapter = new NotificationAdapter(this, notifications);
         notificationListView.setAdapter(adapter);
 
+        // Load notifications from SharedPreferences
+        loadNotifications();
+
+        // Initialize Home and Profile buttons
         Home = findViewById(R.id.union_ek5);
         Profile = findViewById(R.id.union_ek1);
+        Create = findViewById(R.id.union_ek4);
+        Bookmark = findViewById(R.id.union_ek3);
 
         // Set click listener for the "Home" button
         Home.setOnClickListener(new View.OnClickListener() {
@@ -57,19 +64,44 @@ public class NotificationActivity extends AppCompatActivity {
                 startActivity(profileIntent);
             }
         });
+        // Set click listener for the "Create" button
+        Create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start CreateMealActivity
+                Intent createIntent = new Intent(NotificationActivity.this, CreateMealActivity.class);
+                startActivity(createIntent);
+            }
+        });
 
+        // Set click listener for the "Bookmark" button
+        Bookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start SavedMealsActivity
+                Intent bookmarkIntent = new Intent(NotificationActivity.this, SavedMealsActivity.class);
+                startActivity(bookmarkIntent);
+            }
+        });
     }
 
     private void loadNotifications() {
         // Initialize SharedPreferences
         SharedPreferences notificationsPrefs = getSharedPreferences("notifications", MODE_PRIVATE);
-        // Retrieve notification message
-        String notificationMessage = notificationsPrefs.getString("notification_message", "");
+        // Retrieve notification count
+        int notificationCount = notificationsPrefs.getInt("notification_count", 0);
 
-        // Add notification to list if message is not empty
-        if (!notificationMessage.isEmpty()) {
-            notifications.add(new Notification("Thông báo", notificationMessage));
-            adapter.notifyDataSetChanged(); // Notify adapter that data set changed
+        for (int i = 0; i < notificationCount; i++) {
+            String notificationTitle = notificationsPrefs.getString("notification_title_" + i, "");
+            String notificationMessage = notificationsPrefs.getString("notification_message_" + i, "");
+            if (!notificationTitle.isEmpty() && !notificationMessage.isEmpty()) {
+                notifications.add(new Notification(notificationTitle, notificationMessage));
+            }
+        }
+
+        // Notify adapter that data set changed
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
         }
     }
 }

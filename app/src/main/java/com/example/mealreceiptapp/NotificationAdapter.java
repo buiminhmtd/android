@@ -1,4 +1,5 @@
 package com.example.mealreceiptapp;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,24 +21,34 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.notification_list_item, parent, false);
+            holder = new ViewHolder();
+            holder.notificationText = convertView.findViewById(R.id.notification_text);
+            holder.notificationDescription = convertView.findViewById(R.id.notification_description);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
         // Get the data item for this position
         Notification notification = getItem(position);
 
-        // Check if an existing view is being reused, otherwise inflate the view
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.notification_list_item, parent, false);
-        }
-
-        // Lookup view for data population
-        TextView notificationText = convertView.findViewById(R.id.notification_text);
-        TextView notificationDescription = convertView.findViewById(R.id.notification_description);
-
         // Populate the data into the template view using the data object
-        notificationText.setText(notification.getTitle());
-        notificationDescription.setText(notification.getDescription());
+        if (notification != null) {
+            holder.notificationText.setText(notification.getTitle());
+            holder.notificationDescription.setText(notification.getDescription());
+        }
 
         // Return the completed view to render on screen
         return convertView;
     }
-}
 
+    // View lookup cache
+    private static class ViewHolder {
+        TextView notificationText;
+        TextView notificationDescription;
+    }
+}
